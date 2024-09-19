@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Sword
   stackable: 0
-  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 168473838, guid: 7a9fe2284753e4745a2a68b2e9b6efa3, type: 3}

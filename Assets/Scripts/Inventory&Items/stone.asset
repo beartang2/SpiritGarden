@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f045cdc6df3501540a1f5ef0aebf3c45, type: 3}
-  m_Name: gold
+  m_Name: stone
   m_EditorClassIdentifier: 
-  Name: Gold
+  Name: Stone
   stackable: 1
-  icon: {fileID: 0}
+  icon: {fileID: 483672523, guid: 7a9fe2284753e4745a2a68b2e9b6efa3, type: 3}
