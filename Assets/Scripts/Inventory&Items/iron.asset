@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Iron
   stackable: 1
-  icon: {fileID: -433109968, guid: 7a9fe2284753e4745a2a68b2e9b6efa3, type: 3}
+  icon: {fileID: 21300000, guid: 262b69c606098b345b782d427ce5eda2, type: 3}

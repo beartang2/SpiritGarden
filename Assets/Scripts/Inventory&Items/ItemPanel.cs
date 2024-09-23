@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class ItemPanel : MonoBehaviour
 {
-    [SerializeField] ItemContainer inventory;
+    public ItemContainer inventory;
     public List<InventoryButton> buttons;
 
     private void Start()
     {
+        Init();
+    }
+
+    public void Init()
+    {
         SetIndex();
         Show();
+    }
+
+    public void OnServerInitialized()
+    {
+        
     }
 
     private void OnEnable()

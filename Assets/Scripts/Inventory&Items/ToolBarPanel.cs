@@ -6,6 +6,13 @@ public class ToolBarPanel : ItemPanel
 {
     [SerializeField] ToolBarController toolBarController;
 
+    private void Start()
+    {
+        Init();
+        toolBarController.onChange += Highlight;
+        Highlight(0);
+    }
+
     public override void OnClick(int id)
     {
         toolBarController.Set(id);
