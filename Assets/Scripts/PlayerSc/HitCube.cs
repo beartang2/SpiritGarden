@@ -9,6 +9,7 @@ public class HitCube : MonoBehaviour
     {
         // 충돌한 물체가 CuttingTree 스크립트를 가진 경우
         CuttingTree cuttingTree = other.GetComponent<CuttingTree>();
+
         if (cuttingTree != null)
         {
             Debug.Log("큐브가 나무와 충돌함!");

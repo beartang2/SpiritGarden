@@ -3715,7 +3715,7 @@ GameObject:
   - component: {fileID: 1402612817}
   - component: {fileID: 1402612816}
   - component: {fileID: 1402612815}
-  - component: {fileID: 1402612814}
+  - component: {fileID: 1402612819}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Tree
@@ -3723,23 +3723,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1402612814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1402612813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14b802664f75c974e812dcc1a59cc4ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dropItem: {fileID: 7856482750098046178, guid: d233c5ee969508e4f9dc4e83af88829b, type: 3}
-  spread: 0.7
-  item: {fileID: 11400000, guid: 90bef1c944c79aa499b2b7fc242ac60d, type: 2}
-  itemCntDrop: 1
-  dropCnt: 25
 --- !u!65 &1402612815
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3826,6 +3809,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &1402612819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402612813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 952b131e3d5a6ba4c80d177cae92860a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItem: {fileID: 7856482750098046178, guid: d233c5ee969508e4f9dc4e83af88829b, type: 3}
+  spread: 0.7
+  item: {fileID: 11400000, guid: 90bef1c944c79aa499b2b7fc242ac60d, type: 2}
+  itemCntDrop: 1
+  dropCnt: 5
 --- !u!1 &1430507682
 GameObject:
   m_ObjectHideFlags: 0
