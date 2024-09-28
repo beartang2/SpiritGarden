@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CuttingTree : MonoBehaviour
+public class DroppingItem : MonoBehaviour
 {
     [SerializeField] GameObject dropItem; // 드랍될 아이템
     [SerializeField] float spread = 0.7f; // 아이템이 퍼질 범위

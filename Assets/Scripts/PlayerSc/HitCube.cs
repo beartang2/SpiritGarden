@@ -7,13 +7,13 @@ public class HitCube : MonoBehaviour
     // 충돌 감지
     private void OnTriggerEnter(Collider other)
     {
-        // 충돌한 물체가 CuttingTree 스크립트를 가진 경우
-        CuttingTree cuttingTree = other.GetComponent<CuttingTree>();
+        // 충돌한 물체가 DroppingItem 스크립트를 가진 경우
+        DroppingItem droppingItem = other.GetComponent<DroppingItem>();
 
-        if (cuttingTree != null)
+        if (droppingItem != null)
         {
             Debug.Log("큐브가 나무와 충돌함!");
-            cuttingTree.Hit(); // CuttingTree 클래스의 Hit() 메서드를 호출
+            droppingItem.Hit(); // DroppingItem 클래스의 Hit() 메서드를 호출
         }
     }
 

@@ -15,7 +15,7 @@ public class ItemSpawner : MonoBehaviour
 
     public void SpawnItem(Vector3 position, Item item, int count)
     {
-        GameObject p = Instantiate(pickItemPrefab, position, Quaternion.identity);
+        GameObject p = Instantiate(pickItemPrefab, position, Quaternion.Euler(45, 45, 0));
         p.GetComponent<PickUpItem>().Set(item, count);
     }
 }
