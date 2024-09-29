@@ -26,7 +26,7 @@ public class DroppingItem : MonoBehaviour
             ItemSpawner.instance.SpawnItem(position, item, itemCntDrop);
         }
 
-        // 나무를 제거
+        // 물체를 제거
         Destroy(gameObject);
     }
 }
