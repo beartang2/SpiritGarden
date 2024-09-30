@@ -1,35 +1,68 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class TileMapReadController : MonoBehaviour
 {
     [SerializeField] Tilemap tileMap; // 타일맵
-    Transform cube;     // 큐브
+    [SerializeField] Grid grid;
+    [SerializeField] List<TileData> tileData;
+    Dictionary<TileBase, TileData> dataFromTile;
+    [SerializeField] Transform cube;     // 큐브
 
     private void Awake()
     {
-        cube = GetComponent<Transform>();
+        dataFromTile = new Dictionary<TileBase, TileData>();
+        grid = tileMap.layoutGrid;
+
+        foreach (TileData tileData in tileData)
+        {
+            foreach(TileBase tile in tileData.tiles)
+            {
+                dataFromTile.Add(tile, tileData);
+            }
+        }
     }
 
     private void Update()
     {
-        //if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0))
         {
-            //GetTileBase(cube.position);
+            GetTileBase(GetGridPosition(cube.position, true));
+
         }
     }
 
-    public TileBase GetTileBase(Vector3 cubePos)
+    public Vector3Int GetGridPosition(Vector3 position, bool cubePos)
     {
-        //월드포지션
+        Vector3 worldPos;
 
-        //Vector3Int gridPos = tileMap.WorldToCell(cubePos);
+        if (cubePos)
+        {
+            worldPos = position;
+        }
+        else
+        {
+            worldPos = position;
+        }
 
-        //TileBase tile = tileMap.GetTile(gridPos);
+        Vector3Int gridPos = grid.WorldToCell(worldPos);
 
-        //Debug.Log("Tile : " + gridPos + " : " +  tile);
+        return gridPos;
+    }
+
+    public TileBase GetTileBase(Vector3Int gridPos)
+    {
+        TileBase tile = tileMap.GetTile(gridPos);
+
+        Debug.Log("Tile : " + gridPos + " : " +  tile);
 
         return null;
     }
-        
+    
+    public TileData GetTileData(TileBase tileBase)
+    {
+
+        return dataFromTile[tileBase];
+    }
 }

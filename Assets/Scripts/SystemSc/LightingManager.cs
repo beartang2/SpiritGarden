@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,8 +11,10 @@ public class LightingManager : MonoBehaviour
     [SerializeField] private LightingPreset preset;
 
     //Variables
-    [SerializeField, Range(0, 24)] private float timeOfDay;
+    [SerializeField, Range(1, 24)] private float timeOfDay;
     public float timeSpeed = 0.5f;
+    private int dayCount = 1;
+    public Action onTimeTick;
 
     private void Update()
     {
@@ -23,13 +26,15 @@ public class LightingManager : MonoBehaviour
         if(Application.isPlaying) //프로그램이 실행중이면
         {
             timeOfDay += Time.deltaTime * timeSpeed; //시간이 흐르도록 함
-            timeOfDay %= 24; //0-24 시간
+            timeOfDay %= 24; //1-24 시간
             UpdateLighting(timeOfDay / 24); //빛 위치 갱신
         }
         else
         {
             UpdateLighting(timeOfDay / 24f);
         }
+
+        CheckDay(timeOfDay);
     }
 
     private void UpdateLighting(float timePercent)
@@ -41,6 +46,14 @@ public class LightingManager : MonoBehaviour
         {
             directionalLight.color = preset.directionalColor.Evaluate(timePercent);
             directionalLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360) - 90f, -45f, 0f));
+        }
+    }
+
+    private void CheckDay(float time)
+    {
+        if(time == 0)
+        {
+            dayCount++;
         }
     }
 

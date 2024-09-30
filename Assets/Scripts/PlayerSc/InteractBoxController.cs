@@ -16,9 +16,6 @@ public class InteractBoxController : MonoBehaviour
     private float fixedY;          // 고정된 Y축 값
     [SerializeField] float colliderActiveTime = 0.1f; // 콜라이더를 잠시 활성화하는 시간
 
-    Vector3Int selTilePos;
-    bool canSelect;
-
     private void Start()
     {
         // 캐릭터의 Y 축을 고정
