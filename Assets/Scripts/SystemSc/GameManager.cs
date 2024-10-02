@@ -15,5 +15,4 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public ItemContainer inventory;
     public DragAndDrop dragAndDrop;
-    public LightingManager onTimeTick;
 }

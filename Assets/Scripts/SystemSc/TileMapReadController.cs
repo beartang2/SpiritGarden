@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.WSA;
 
 public class TileMapReadController : MonoBehaviour
 {
-    [SerializeField] Tilemap tileMap; // ≈∏¿œ∏ 
+    public Tilemap tileMap; // ≈∏¿œ∏ 
+    public Tilemap seedTileMap; // æææ—≈∏¿œ∏ 
     [SerializeField] Grid grid;
     [SerializeField] List<TileData> tileData;
     Dictionary<TileBase, TileData> dataFromTile;
@@ -26,43 +28,38 @@ public class TileMapReadController : MonoBehaviour
 
     private void Update()
     {
+        /*
         if(Input.GetMouseButtonDown(0))
         {
-            GetTileBase(GetGridPosition(cube.position, true));
-
+            GetTileBase(GetGridPosition(cube.position));
         }
+        */
     }
 
-    public Vector3Int GetGridPosition(Vector3 position, bool cubePos)
+    public Vector3Int GetGridPosition(Vector3 position)
     {
         Vector3 worldPos;
 
-        if (cubePos)
-        {
-            worldPos = position;
-        }
-        else
-        {
-            worldPos = position;
-        }
+
+        worldPos = position;
+
 
         Vector3Int gridPos = grid.WorldToCell(worldPos);
 
         return gridPos;
     }
 
-    public TileBase GetTileBase(Vector3Int gridPos)
+    public TileBase GetTileBase(Vector3Int gridPos, Tilemap map)
     {
-        TileBase tile = tileMap.GetTile(gridPos);
+        TileBase tile = map.GetTile(gridPos);
 
-        Debug.Log("Tile : " + gridPos + " : " +  tile);
+        Debug.Log(map.name + " : " + gridPos + " : " +  tile);
 
-        return null;
+        return tile;
     }
     
     public TileData GetTileData(TileBase tileBase)
     {
-
         return dataFromTile[tileBase];
     }
 }

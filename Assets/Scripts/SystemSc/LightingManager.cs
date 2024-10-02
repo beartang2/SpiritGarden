@@ -14,7 +14,11 @@ public class LightingManager : MonoBehaviour
     [SerializeField, Range(1, 24)] private float timeOfDay;
     public float timeSpeed = 0.5f;
     private int dayCount = 1;
-    public Action onTimeTick;
+
+    private void Start()
+    {
+        Debug.Log("Day " + dayCount);
+    }
 
     private void Update()
     {
@@ -54,6 +58,7 @@ public class LightingManager : MonoBehaviour
         if(time == 0)
         {
             dayCount++;
+            Debug.Log("Day " + dayCount);
         }
     }
 

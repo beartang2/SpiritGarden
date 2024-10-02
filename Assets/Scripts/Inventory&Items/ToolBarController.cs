@@ -19,7 +19,7 @@ public class ToolBarController : MonoBehaviour
             if (delta > 0)
             {
                 selectTool -= 1;
-                selectTool = (selectTool <= 0 ? barSize - 1 : selectTool);
+                selectTool = (selectTool < 0 ? barSize - 1 : selectTool);
             }
             else
             {

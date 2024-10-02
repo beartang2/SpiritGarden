@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName ="Data/Crop")]
-public class Crop : MonoBehaviour
+public class Crop : ScriptableObject
 {
     public int growTime = 10;
     public Item yield;
