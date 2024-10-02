@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Gold
   stackable: 1
-  icon: {fileID: 21300000, guid: b9767e8763e0f8e4abdae9b07a5a0bc4, type: 3}
+  icon: {fileID: 21300000, guid: ba9978cc7a32a7d41b4fa4f224b6991b, type: 3}
+  crop: {fileID: 0}
