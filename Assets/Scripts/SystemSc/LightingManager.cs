@@ -11,9 +11,11 @@ public class LightingManager : MonoBehaviour
     [SerializeField] private LightingPreset preset;
 
     //Variables
-    [SerializeField, Range(1, 24)] private float timeOfDay;
+    [SerializeField, Range(0, 23)] private float timeOfDay;
     public float timeSpeed = 0.5f;
-    private int dayCount = 1;
+    public int dayCount = 1;
+
+    public event Action OnDayPassed; // 하루가 지날 때 발생하는 이벤트
 
     private void Start()
     {
@@ -38,7 +40,7 @@ public class LightingManager : MonoBehaviour
             UpdateLighting(timeOfDay / 24f);
         }
 
-        CheckDay(timeOfDay);
+        CheckDay();
     }
 
     private void UpdateLighting(float timePercent)
@@ -53,10 +55,15 @@ public class LightingManager : MonoBehaviour
         }
     }
 
-    private void CheckDay(float time)
+    public void CheckDay()
     {
-        if(time == 0)
+        if(dayCount > 0 && timeOfDay == 0)
         {
+            if (OnDayPassed != null)
+            {
+                OnDayPassed(); // 하루가 지나면 구독자들에게 알림
+            }
+
             dayCount++;
             Debug.Log("Day " + dayCount);
         }

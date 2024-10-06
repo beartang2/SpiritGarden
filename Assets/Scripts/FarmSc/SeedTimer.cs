@@ -10,22 +10,19 @@ public class SeedTimer : MonoBehaviour
     [SerializeField] TileBase seeded;
     [SerializeField] Tilemap seedTile;
 
-    private float timer = 0f;
-
     private void Update()
     {
         SetSprite();
+        timeManager.CheckDay();
+
+        if(timeManager.dayCount / 3 == 0) //3의 배수일때 즉, 3일마다
+        {
+
+        }
     }
 
     private void SetSprite()
     {
         Vector3Int gridPos = seedTile.WorldToCell(gameObject.transform.position);
-
-        this.timer += Time.deltaTime;
-        if (this.timer == 5f)
-        {
-            this.seedTile.SetTile(gridPos, null);
-            this.timer = 0f;
-        }
     }
 }

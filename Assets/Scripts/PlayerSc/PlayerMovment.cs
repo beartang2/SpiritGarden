@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
         // Rigidbody 컴포넌트 가져오기
         rb = GetComponent<Rigidbody>();
         // Animator 컴포넌트 가져오기
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
 
         // 카메라가 할당되지 않았으면 자동으로 메인 카메라를 찾음
         if (mainCamera == null)
@@ -71,8 +71,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveDirection = (targetPosition - rb.position).normalized;
 
         // 애니메이터 파라미터 업데이트
-        //anim.SetFloat("MoveX", moveDirection.x);
-        //anim.SetFloat("MoveY", moveDirection.z); // Z축을 Y축으로 사용 (2D일 경우 Y축 사용)
+        anim.SetFloat("MoveX", moveDirection.x);
+        anim.SetFloat("MoveY", moveDirection.z); // Z축을 Y축으로 사용
 
         // 캐릭터가 목표 지점에 거의 도달하면 이동을 멈춤
         if (Vector3.Distance(rb.position, targetPosition) < 0.2f)
@@ -87,8 +87,8 @@ public class PlayerMovement : MonoBehaviour
         // 캐릭터가 이동하지 않는다면 애니메이션을 중지
         if (!isMoving)
         {
-            //anim.SetFloat("MoveX", 0);
-            //anim.SetFloat("MoveY", 0);
+            anim.SetFloat("MoveX", 0);
+            anim.SetFloat("MoveY", 0);
         }
     }
 }
