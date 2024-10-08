@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GrowingPlant : MonoBehaviour
 {
+    [SerializeField] TileBase watered;
+    [SerializeField] TileBase dried;
     [SerializeField] private Sprite[] growthSprites; // 각 성장 단계별 스프라이트 배열
     [SerializeField] private GameObject finalPlantPrefab; // 최종적으로 변할 식물 오브젝트
     [SerializeField] private int totalGrowthDays = 3; // 전체 성장에 걸리는 일 수
@@ -43,7 +46,7 @@ public class GrowingPlant : MonoBehaviour
     private void TransformToFinalPlant()
     {
         // 현재 오브젝트 제거하고 최종 식물 오브젝트를 생성
-        Instantiate(finalPlantPrefab, transform.position, Quaternion.identity);
+        Instantiate(finalPlantPrefab, transform.position, Quaternion.Euler(0, 45, 0));
         Destroy(gameObject); // 현재 오브젝트는 파괴
     }
 

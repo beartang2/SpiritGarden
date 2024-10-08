@@ -14,7 +14,7 @@ public class PlayerToolController : MonoBehaviour
     [SerializeField] Transform interactBox; // 상호작용 박스 위치
     [SerializeField] CropManager cropManager; // 작물 관리 스크립트
 
-    Vector3Int selectedTilePos; // 선택된 타일의 그리드 좌표
+    public Vector3Int selectedTilePos; // 선택된 타일의 그리드 좌표
     TileBase currentTile; // 현재 타일맵에서 선택된 타일
     TileBase seedTile; // 씨앗 타일맵에서 선택된 타일
     TileData currentTileData; // 현재 타일의 데이터 (seedable, waterable 등 속성 정보)

@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // 마우스 우클릭 감지
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(1))
         {
             SetTargetPosition();  // 마우스 우클릭한 위치로 목표 설정
         }

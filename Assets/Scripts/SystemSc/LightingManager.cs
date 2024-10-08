@@ -2,18 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [ExecuteAlways]
 public class LightingManager : MonoBehaviour
 {
-    //References
     [SerializeField] private Light directionalLight;
     [SerializeField] private LightingPreset preset;
+    [SerializeField] private Text dayTimeUI;
 
-    //Variables
     [SerializeField, Range(0, 23)] private float timeOfDay;
     public float timeSpeed = 0.5f;
     public int dayCount = 1;
+    public bool isCounted = false;
 
     public event Action OnDayPassed; // 하루가 지날 때 발생하는 이벤트
 
@@ -41,6 +42,14 @@ public class LightingManager : MonoBehaviour
         }
 
         CheckDay();
+        UpdateTimeUI();
+    }
+
+    private void UpdateTimeUI()
+    {
+        dayTimeUI.text
+            = "날짜 : " + dayCount.ToString() + "일\n"
+            + "시간 : " + ((int)(timeOfDay % 24)).ToString() + "시";
     }
 
     private void UpdateLighting(float timePercent)
@@ -57,15 +66,20 @@ public class LightingManager : MonoBehaviour
 
     public void CheckDay()
     {
-        if(dayCount > 0 && timeOfDay == 0)
-        {
+        if(!isCounted && (int)(timeOfDay % 24) == 0)
+        {            
             if (OnDayPassed != null)
             {
                 OnDayPassed(); // 하루가 지나면 구독자들에게 알림
             }
 
             dayCount++;
+            isCounted = true;
             Debug.Log("Day " + dayCount);
+        }
+        else if(isCounted && (int)(timeOfDay % 24) > 8)
+        {
+            isCounted = false;
         }
     }
 
