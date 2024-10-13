@@ -6,16 +6,20 @@ public class PickUpItem : MonoBehaviour
 {
     Transform player; // 플레이어의 위치를 추적할 변수
     [SerializeField] float speed = 5f; // 아이템이 플레이어에게 이동하는 속도
-    [SerializeField] float pickDis = 1.5f; // 아이템이 플레이어에게 이동하기 시작하는 거리
+    [SerializeField] float pickDis = 1.3f; // 아이템이 플레이어에게 이동하기 시작하는 거리
     [SerializeField] float ttl = 10f; // 아이템의 Time To Live (생존 시간)
 
     public Item item; // 아이템 정보를 담는 변수
     public int count = 1; // 아이템 개수
 
+    BoxCollider itemCol; // 아이템 콜라이더
+
     private void Start()
     {
         // GameManager에서 플레이어의 Transform을 가져옴
         player = GameManager.instance.player.transform;
+        // BoxCollider 가져옴
+        itemCol = gameObject.GetComponent<BoxCollider>();
     }
 
     // 아이템의 종류와 개수를 설정하는 메서드
@@ -54,7 +58,7 @@ public class PickUpItem : MonoBehaviour
         );
 
         // 플레이어에 매우 가까워지면 아이템을 제거
-        if (dis < 0.1f)
+        if (dis < 0.3f)
         {
             // 인벤토리가 null이 아니면
             if(GameManager.instance.inventory != null)

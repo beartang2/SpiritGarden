@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3041446809687303379}
   m_Layer: 0
   m_Name: Stone
-  m_TagString: Tree
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 4.13, y: 0.5, z: -6.52}
-  m_LocalScale: {x: 1, y: 1, z: 0.3}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904839250287245076}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &5204250154361295716
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3b23de872dc42eb428a05195c48a671e, type: 2}
+  - {fileID: 2100000, guid: 9c34cb749df10e94787ad2cd59495669, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,8 +104,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.74, y: 0.74091953, z: 1}
+  m_Center: {x: 0.0058897138, y: 0.023586601, z: -9.929315e-10}
 --- !u!114 &3041446809687303379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,3 +123,4 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 8519f0a2f2a13b0459c69fc461797524, type: 2}
   itemCntDrop: 1
   dropCnt: 2
+  yOffset: 0.5

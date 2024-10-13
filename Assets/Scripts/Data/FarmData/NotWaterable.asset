@@ -16,5 +16,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d4d1a4933a0fe644e9c431f5a767bb12, type: 2}
   - {fileID: 11400000, guid: c7c019237bc3db842a1beec3971a6b8c, type: 2}
   - {fileID: 11400000, guid: ec079c1b63f7031429b4639081b80af9, type: 2}
-  plowable: 0
+  waterable: 0
   seedable: 0
+  isSeededTile: 0

@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6583055277904715332}
-  - component: {fileID: 646888781232570999}
-  - component: {fileID: 5260172334831121147}
+  - component: {fileID: 7221637254095928739}
+  - component: {fileID: 4724875082066969740}
   - component: {fileID: 3133946941378049281}
   - component: {fileID: 4475557637141481255}
   m_Layer: 0
@@ -29,21 +29,21 @@ Transform:
   m_GameObject: {fileID: 2058311026084521732}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -1.52, y: 1, z: 7.45}
-  m_LocalScale: {x: 1, y: 2, z: 0.3}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
---- !u!33 &646888781232570999
+--- !u!33 &7221637254095928739
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058311026084521732}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5260172334831121147
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &4724875082066969740
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eeeea31144f57b34dbb626e98ade71fe, type: 2}
+  - {fileID: 2100000, guid: 74d8d44ccda83a14a95440ec8ee65075, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,8 +104,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.24, y: 0.38657507, z: 1}
+  m_Center: {x: 0.020906674, y: -0.22857939, z: -0.000000062357664}
 --- !u!114 &4475557637141481255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,3 +123,4 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 90bef1c944c79aa499b2b7fc242ac60d, type: 2}
   itemCntDrop: 1
   dropCnt: 3
+  yOffset: 0.5

@@ -13,11 +13,14 @@ public class PlayerToolController : MonoBehaviour
     [SerializeField] TileMapReadController tileReadCont; // 타일맵을 읽는 컨트롤러
     [SerializeField] Transform interactBox; // 상호작용 박스 위치
     [SerializeField] CropManager cropManager; // 작물 관리 스크립트
+    [SerializeField] GameObject plantPrefab; // 식물 오브젝트
 
     public Vector3Int selectedTilePos; // 선택된 타일의 그리드 좌표
     TileBase currentTile; // 현재 타일맵에서 선택된 타일
     TileBase seedTile; // 씨앗 타일맵에서 선택된 타일
-    TileData currentTileData; // 현재 타일의 데이터 (seedable, waterable 등 속성 정보)
+    public TileData currentTileData; // 현재 타일의 데이터 (seedable, waterable 등 속성 정보)
+
+    public List<Vector3Int> plantedPositions = new List<Vector3Int> (); // 식물 심은 위치 정보 리스트
 
     private void Awake()
     {
@@ -61,16 +64,37 @@ public class PlayerToolController : MonoBehaviour
     // 도구를 사용하여 씨앗을 심거나 물을 줌
     private void UseToolGrid()
     {
-        // 씨앗을 심을 수 있는 타일이면 씨앗을 심음
-        if (currentTileData.seedable == true)
+        if(tileReadCont.tileMap == null)
         {
-            cropManager.Seed(selectedTilePos); // 씨앗 심기
+            return;
         }
 
-        // 물을 줄 수 있는 타일이면서 씨앗 타일이 존재하면 물주기
-        if (currentTileData.waterable == true && seedTile != null)
+        // 씨앗을 심을 수 있는 타일이고 씨앗이 심어지지 않은 타일이면 씨앗을 심음
+        if (currentTileData.seedable == true && seedTile == null)
         {
-            cropManager.Watering(selectedTilePos); // 물주기
+            // 현재 선택한 타일에 이미 식물이 심어져 있는지 확인
+            if (!plantedPositions.Contains(selectedTilePos))
+            {
+                // 씨앗 심기
+                cropManager.Seed(selectedTilePos);
+                plantedPositions.Add(selectedTilePos); // 심은 위치 정보 추가
+                Debug.Log("씨앗을 심었다!");
+            }
+            else if(currentTile.name == "Land")
+            {
+                Debug.Log("이미 식물이 심어져 있습니다");
+                cropManager.Watering(selectedTilePos);
+            }
+        }
+
+        // 씨앗 타일이 존재하고
+        if(seedTile != null)
+        {
+            // 물을 줄 수 있는 타일이면
+            if (currentTileData.waterable == true)
+            {
+                cropManager.Watering(selectedTilePos); // 물주기
+            }
         }
     }
 }

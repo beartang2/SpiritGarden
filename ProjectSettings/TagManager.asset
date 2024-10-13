@@ -7,6 +7,7 @@ TagManager:
   - Tree
   - Stone
   - Ground
+  - Plant
   layers:
   - Default
   - TransparentFX
@@ -15,9 +16,9 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
-  - 
+  - item
+  - player
+  - objects
   - 
   - 
   - 

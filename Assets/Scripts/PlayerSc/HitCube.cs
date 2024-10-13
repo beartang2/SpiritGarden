@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HitCube : MonoBehaviour
 {
+    [SerializeField] objectSpawner spawner; // 스포너 스크립트
+
     // 충돌 감지
     private void OnTriggerEnter(Collider other)
     {
@@ -13,6 +15,7 @@ public class HitCube : MonoBehaviour
 
         if (droppingItem != null) // 드랍아이템 스크립트가 존재하면 -> 물체
         {
+            spawner.stoneList.Remove(other.gameObject);
             Debug.Log("큐브가 충돌함!");
             droppingItem.Hit(); // DroppingItem 클래스의 Hit() 메서드를 호출
         }

@@ -11,6 +11,8 @@ public class DroppingItem : MonoBehaviour
     [SerializeField] int itemCntDrop = 1; // 드랍될 아이템의 개수
     [SerializeField] int dropCnt = 5; // 드랍 횟수
 
+    public float yOffset = 0f; // 높이 설정
+
     public void Hit()
     {
         // 드랍 횟수만큼 아이템을 드랍
@@ -20,7 +22,8 @@ public class DroppingItem : MonoBehaviour
 
             Vector3 position = transform.position;
             position.x += spread * Random.value - spread / 2;
-            position.y += spread * Random.value - spread / 2;
+            position.z += spread * Random.value - spread / 2;
+            position.y = yOffset;
 
             // 아이템 생성
             ItemSpawner.instance.SpawnItem(position, item, itemCntDrop);
