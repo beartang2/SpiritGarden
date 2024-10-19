@@ -18,14 +18,18 @@ public class ItemPanel : MonoBehaviour
         Show();
     }
 
-    public void OnServerInitialized()
-    {
-        
-    }
-
     private void OnEnable()
     {
         Show();
+    }
+
+    private void LateUpdate()
+    {
+        if(inventory.isDirty)
+        {
+            Show();
+            inventory.isDirty = false;
+        }
     }
 
     private void SetIndex()

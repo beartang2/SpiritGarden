@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class GrowingPlant : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class GrowingPlant : MonoBehaviour
     private SpriteRenderer spriteRenderer; // 현재 오브젝트의 스프라이트 렌더러
     private int currentGrowthDay = 0; // 현재 성장한 일 수
     private LightingManager timeManager; // 시간을 관리하는 스크립트 참조 (외부에서 연결됨)
+
+    Vector3 cropPos;
 
     private void Start()
     {
@@ -45,8 +48,11 @@ public class GrowingPlant : MonoBehaviour
     // 최종 식물 오브젝트로 변환하는 함수
     private void TransformToFinalPlant()
     {
+        cropPos = transform.position;
+        cropPos.y = 1f; // 최종 식물 높이에 따른 y축 위치 고정
+
         // 현재 오브젝트 제거하고 최종 식물 오브젝트를 생성
-        Instantiate(finalPlantPrefab, transform.position, Quaternion.Euler(0, 45, 0));
+        Instantiate(finalPlantPrefab, cropPos, Quaternion.Euler(0, 45, 0));
         Destroy(gameObject); // 현재 오브젝트는 파괴
     }
 

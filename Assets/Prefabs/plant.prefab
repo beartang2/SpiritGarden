@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad587dbf2945e74191d4c99a8ec02a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dried: {fileID: 11400000, guid: 0ffa45ff5cd84d5478a83bc6f547c20b, type: 2}
+  targetTile: {fileID: 0}
+  seedTile: {fileID: 0}
   dropItem: {fileID: 7856482750098046178, guid: d233c5ee969508e4f9dc4e83af88829b, type: 3}
   spread: 0.7
   item: {fileID: 11400000, guid: 9723180364091dd4eb5c90d439717522, type: 2}
@@ -72,7 +75,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.41, y: 0.6067239, z: 1}
+  m_Size: {x: 0.31, y: 0.6067239, z: 3.17}
   m_Center: {x: 0, y: 0.03836143, z: 0}
 --- !u!33 &1765306184892734723
 MeshFilter:

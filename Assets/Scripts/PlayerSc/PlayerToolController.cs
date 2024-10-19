@@ -30,6 +30,11 @@ public class PlayerToolController : MonoBehaviour
 
     private void Update()
     {
+        if(tileReadCont == null || cropManager == null)
+        {
+            return;
+        }
+
         SelectTile(); // 선택된 타일의 좌표를 가져옴
 
         if (Input.GetMouseButtonDown(0)) // 마우스 좌클릭 시 상호작용

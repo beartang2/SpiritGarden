@@ -34,7 +34,7 @@ public class CropManager : MonoBehaviour
 
     //private float timer = 0f;
 
-    private Dictionary<Vector3Int, CropTile> cropTiles = new Dictionary<Vector3Int, CropTile>();
+    public Dictionary<Vector3Int, CropTile> cropTiles = new Dictionary<Vector3Int, CropTile>();
 
 
     private void Start()
@@ -57,6 +57,12 @@ public class CropManager : MonoBehaviour
             Vector3Int position = kvp.Key;
             CropTile cropTile = kvp.Value;
 
+            // 이미 자란 식물은 더 이상 처리하지 않음
+            if (cropTile.hasGrown)
+            {
+                continue; // 이미 자란 경우에는 무시
+            }
+
             // 물을 준 상태라면 시간이 흐름
             if (cropTile.isWatered && cropTile.hasSeed)
             {
@@ -73,6 +79,7 @@ public class CropManager : MonoBehaviour
         foreach (var tilePos in tilesToGrow)
         {
             GrowPlant(tilePos); // 식물 성장 처리
+            Debug.Log("새싹 성장 완료 : " + tilePos);
         }
     }
 
@@ -161,8 +168,17 @@ public class CropManager : MonoBehaviour
     private void GrowPlant(Vector3Int position)
     {
         Vector3 plantPosition = seedTile.GetCellCenterWorld(position);
+
         //식물 생성
         Instantiate(growingPlantPrefab, plantPosition, Quaternion.Euler(0f, 45f, 0f));
+
+        // 타일 상태 업데이트
+        if (cropTiles.ContainsKey(position))
+        {
+            cropTiles[position].hasGrown = true; // 식물이 자란 상태로 변경
+        }
+
+        Debug.Log("식물이 자람: " + position);
 
         DeleteSeedTile(position);
     }

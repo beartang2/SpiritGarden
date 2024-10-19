@@ -33,9 +33,12 @@ public class ItemSlot
 public class ItemContainer : ScriptableObject
 {
     public List<ItemSlot> slots;
+    public bool isDirty;
 
     public void Add(Item item, int count = 1)
     {
+        isDirty = true;
+
         if (item.stackable == true)
         {
             ItemSlot itemSlot = slots.Find(x => x.item == item);
@@ -65,5 +68,53 @@ public class ItemContainer : ScriptableObject
                 itemSlot.item = item;
             }
         }
+    }
+
+    public void Remove(Item itemToRemove, int cnt = 1)
+    {
+        isDirty = true;
+
+        if (itemToRemove.stackable)
+        {
+            ItemSlot itemSlot = slots.Find(x => x.item == itemToRemove);
+            if (itemSlot == null)
+            {
+                return;
+            }
+
+            itemSlot.count -= cnt;
+            if(itemSlot.count <= 0)
+            {
+                itemSlot.Clear();
+            }
+        }
+        else
+        {
+            while(cnt > 0)
+            {
+                cnt -= 1;
+
+                ItemSlot itemSlot = slots.Find(x => x.item == itemToRemove);
+                if(itemSlot == null)
+                {
+                    return ;
+                }
+
+                itemSlot.Clear();
+            }
+        }
+    }
+
+    internal bool CheckSpace()
+    {
+        for(int i=0; i<slots.Count; i++)
+        {
+            if (slots[i].item == null)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
