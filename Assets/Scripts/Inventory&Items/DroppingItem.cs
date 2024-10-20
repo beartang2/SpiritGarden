@@ -5,7 +5,6 @@ using UnityEngine.Tilemaps;
 
 public class DroppingItem : MonoBehaviour
 {
-
     [SerializeField] Dictionary<Vector3Int, CropTile> cropTiles;
     [SerializeField] TileBase dried;
     [SerializeField] Tilemap targetTile;

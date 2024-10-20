@@ -16,6 +16,9 @@ public class InteractBoxController : MonoBehaviour
     private float fixedY;          // 고정된 Y축 값
     [SerializeField] float colliderActiveTime = 0.1f; // 콜라이더를 잠시 활성화하는 시간
 
+    ToolBarController toolbarCont; // 툴 바 컨트롤러
+    [SerializeField] SpriteRenderer toolSprite; // 도구 이미지
+
     private void Start()
     {
         // 캐릭터의 Y 축을 고정
@@ -26,11 +29,14 @@ public class InteractBoxController : MonoBehaviour
 
         // 큐브의 콜라이더를 처음에는 비활성화
         cubeCollider.enabled = false;
+
+        toolbarCont = gameObject.GetComponent<ToolBarController>();
     }
 
     void Update()
     {
-        //SelectTile();
+        UpdateToolIcon();
+
         // 마우스 포인터에서 나가는 레이를 생성
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -80,6 +86,20 @@ public class InteractBoxController : MonoBehaviour
             // 큐브의 Y축 고정
             cube.position = new Vector3(cube.position.x, fixedY, cube.position.z);
         }
+    }
+
+    private void UpdateToolIcon()
+    {
+        Item item = toolbarCont.GetItem;
+
+        if(item == null)
+        {
+            return;
+        }
+
+        toolSprite.sprite = item.icon;
+
+        // 방향에 따른 x,y 플립 기능
     }
 
     // 큐브의 콜라이더를 잠깐 활성화했다가 비활성화하는 코루틴

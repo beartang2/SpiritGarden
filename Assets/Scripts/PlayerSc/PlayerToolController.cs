@@ -9,7 +9,7 @@ public class PlayerToolController : MonoBehaviour
 {
     PlayerMovement player; // 플레이어 움직임을 관리하는 스크립트
     Rigidbody rb; // 플레이어의 Rigidbody 컴포넌트 참조
-    //[SerializeField] MarkerManager markerManager; // 마커 관리 스크립트 (사용하지 않음)
+    ToolBarController toolbarCont; // 툴 바 컨트롤러
     [SerializeField] TileMapReadController tileReadCont; // 타일맵을 읽는 컨트롤러
     [SerializeField] Transform interactBox; // 상호작용 박스 위치
     [SerializeField] CropManager cropManager; // 작물 관리 스크립트
@@ -26,6 +26,7 @@ public class PlayerToolController : MonoBehaviour
     {
         player = GetComponent<PlayerMovement>(); // 플레이어 움직임 스크립트 참조
         rb = GetComponent<Rigidbody>(); // 플레이어의 Rigidbody 참조
+        toolbarCont = GetComponent<ToolBarController>(); // 툴 바 컨트롤러 참조
     }
 
     private void Update()
@@ -69,36 +70,41 @@ public class PlayerToolController : MonoBehaviour
     // 도구를 사용하여 씨앗을 심거나 물을 줌
     private void UseToolGrid()
     {
-        if(tileReadCont.tileMap == null)
+        Item item = toolbarCont.GetItem;
+
+        if (tileReadCont.tileMap == null)
         {
             return;
+        }
+
+        //물을 줄 수 있는 타일이면
+        if (currentTileData.waterable == true)
+        {
+            // 아이템이 존재하고 도구 이름이 물뿌리개이면
+            if (item != null && item.Name == "Wateringcan")
+            {
+                cropManager.Watering(selectedTilePos); // 물주기
+            }
         }
 
         // 씨앗을 심을 수 있는 타일이고 씨앗이 심어지지 않은 타일이면 씨앗을 심음
         if (currentTileData.seedable == true && seedTile == null)
         {
-            // 현재 선택한 타일에 이미 식물이 심어져 있는지 확인
-            if (!plantedPositions.Contains(selectedTilePos))
+            if(item != null && item.Name == "Sickle")
             {
-                // 씨앗 심기
-                cropManager.Seed(selectedTilePos);
-                plantedPositions.Add(selectedTilePos); // 심은 위치 정보 추가
-                Debug.Log("씨앗을 심었다!");
-            }
-            else if(currentTile.name == "Land")
-            {
-                Debug.Log("이미 식물이 심어져 있습니다");
-                cropManager.Watering(selectedTilePos);
-            }
-        }
-
-        // 씨앗 타일이 존재하고
-        if(seedTile != null)
-        {
-            // 물을 줄 수 있는 타일이면
-            if (currentTileData.waterable == true)
-            {
-                cropManager.Watering(selectedTilePos); // 물주기
+                // 현재 선택한 타일에 이미 식물이 심어져 있는지 확인
+                if (!plantedPositions.Contains(selectedTilePos))
+                {
+                    // 씨앗 심기
+                    cropManager.Seed(selectedTilePos);
+                    plantedPositions.Add(selectedTilePos); // 심은 위치 정보 추가
+                    Debug.Log("씨앗을 심었다!");
+                }
+                else if(currentTile.name == "Land")
+                {
+                    Debug.Log("이미 식물이 심어져 있습니다");
+                    //cropManager.Watering(selectedTilePos);
+                }
             }
         }
     }

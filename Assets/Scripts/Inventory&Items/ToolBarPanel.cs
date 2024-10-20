@@ -6,6 +6,8 @@ public class ToolBarPanel : ItemPanel
 {
     [SerializeField] ToolBarController toolBarController;
 
+    int currentSelectTool;
+
     private void Start()
     {
         Init();
@@ -18,9 +20,6 @@ public class ToolBarPanel : ItemPanel
         toolBarController.Set(id);
         Highlight(id);
     }
-
-    int currentSelectTool;
-
     public void Highlight(int id)
     {
         buttons[currentSelectTool].Highlight(false);

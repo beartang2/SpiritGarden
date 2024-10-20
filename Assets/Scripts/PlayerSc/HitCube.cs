@@ -11,9 +11,14 @@ public class HitCube : MonoBehaviour
 
     private Vector3Int tilePos;
 
+    [SerializeField] ToolBarController toolbarCont;
+
     // 충돌 감지
     private void OnTriggerEnter(Collider other)
     {
+        // 도구 아이템 정보 가져오기
+        Item item = toolbarCont.GetItem;
+
         // 충돌한 물체의 스크립트를 가져온다
         DroppingItem droppingItem = other.GetComponent<DroppingItem>();
         //EnemyHP enemyHp = other.GetComponent<EnemyHP>();
@@ -25,16 +30,17 @@ public class HitCube : MonoBehaviour
                 tilePos = tileReadCont.GetGridPosition(gameObject.transform.position);
                 dropItemSc.HarvestPlant(tilePos);
             }
-            if(stspawner != null)
+            if(item.Name == "Pickaxe" && other.CompareTag("Stone") && stspawner != null)
             {
                 stspawner.stoneList.Remove(other.gameObject);
+                droppingItem.Hit(); // DroppingItem 클래스의 Hit() 메서드를 호출
             }
-            if(trspawner != null)
+            if(item.Name == "Pickaxe" && other.CompareTag("Tree") && trspawner != null)
             {
                 trspawner.objectList.Remove(other.gameObject);
+                droppingItem.Hit(); // DroppingItem 클래스의 Hit() 메서드를 호출
             }
             Debug.Log("큐브가 충돌함!");
-            droppingItem.Hit(); // DroppingItem 클래스의 Hit() 메서드를 호출
         }
         /*
          * else if(enemyHp != null) // 체력 스크립트가 존재하면 -> 몬스터

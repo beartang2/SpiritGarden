@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f045cdc6df3501540a1f5ef0aebf3c45, type: 3}
-  m_Name: sickle
+  m_Name: pickaxe
   m_EditorClassIdentifier: 
-  Name: Sickle
+  Name: Pickaxe
   stackable: 0
-  icon: {fileID: 21300000, guid: 85662993953640e4f9c496032314fbed, type: 3}
+  icon: {fileID: 21300000, guid: ddbb09f0ba823ed4e87c523a16f77297, type: 3}
   crop: {fileID: 0}
