@@ -100,6 +100,16 @@ public class InteractBoxController : MonoBehaviour
         toolSprite.sprite = item.icon;
 
         // 방향에 따른 x,y 플립 기능
+        Vector3 flipIcon = cube.position - player.position;
+
+        if(flipIcon.x - flipIcon.z > 0)
+        {
+            toolSprite.flipX = true;
+        }
+        else
+        {
+            toolSprite.flipX = false;
+        }
     }
 
     // 큐브의 콜라이더를 잠깐 활성화했다가 비활성화하는 코루틴
