@@ -64,4 +64,24 @@ public class DroppingItem : MonoBehaviour
         // 물체를 제거
         Destroy(gameObject);
     }
+
+    public void KillEnemy()
+    {
+        // 드랍 횟수만큼 아이템을 드랍
+        while (dropCnt > 0)
+        {
+            dropCnt -= 1;
+
+            Vector3 position = transform.position;
+            position.x += spread * Random.value - spread / 2;
+            position.z += spread * Random.value - spread / 2;
+            position.y = yOffset;
+
+            // 아이템 생성
+            ItemSpawner.instance.SpawnItem(position, item, itemCntDrop);
+        }
+
+        // 에너미 비활성화
+        gameObject.SetActive(false);
+    }
 }

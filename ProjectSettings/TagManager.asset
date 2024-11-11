@@ -8,6 +8,11 @@ TagManager:
   - Stone
   - Ground
   - Plant
+  - Building1
+  - Building2
+  - Building3
+  - Enemy
+  - ToolBox
   layers:
   - Default
   - TransparentFX
