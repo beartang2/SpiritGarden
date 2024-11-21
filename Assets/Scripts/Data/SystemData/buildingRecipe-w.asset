@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a87fcd5e592112408140ea9f8cd809d, type: 3}
-  m_Name: buildingRecipe
+  m_Name: buildingRecipe-w
   m_EditorClassIdentifier: 
   recipes:
-  - {fileID: 11400000, guid: 717d4b713c6741247a9b53b1af2ec4c3, type: 2}
-  - {fileID: 11400000, guid: 331bebd17f79b0a4598029ee31cc2386, type: 2}
-  - {fileID: 11400000, guid: 48c41d731ec6f0e42a2c6f2a4bde1fba, type: 2}
+  - {fileID: 11400000, guid: 64486af8ed0b90140b68ee466726b678, type: 2}
+  - {fileID: 11400000, guid: 64486af8ed0b90140b68ee466726b678, type: 2}
+  - {fileID: 11400000, guid: 64486af8ed0b90140b68ee466726b678, type: 2}

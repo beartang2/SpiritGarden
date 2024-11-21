@@ -15,10 +15,11 @@ public class HitCube : MonoBehaviour
 
     [SerializeField] ToolBarController toolbarCont;
 
-    private int id = -1; // 건축물 번호
-    private bool builded1 = false; // 1번건축물
-    private bool builded2 = false; // 2번 건축물
-    private bool builded3 = false; // 정령
+    private BuildingSprites buildingSprites;
+    private SpriteRenderer spriteRenderer;
+    private Sprite[] sprites; // sprite 배열
+
+    private int id = -1; // 건축물 번호 초기화
 
     // 충돌 감지
     private void OnTriggerEnter(Collider other)
@@ -29,7 +30,9 @@ public class HitCube : MonoBehaviour
         // 충돌한 물체의 스크립트를 가져온다
         DroppingItem droppingItem = other.GetComponent<DroppingItem>();
         EnemyHp enemyHp = other.GetComponent<EnemyHp>();
-        SpriteRenderer buildingSprite = other.GetComponent<SpriteRenderer>();
+        SpriteRenderer buildingSprite = other.GetComponentInChildren<SpriteRenderer>();
+        BuildingSprites buildingSprites = other.GetComponentInChildren<BuildingSprites>();
+        sprites = buildingSprites.buildSprites; // sprite 참조
 
         if (enemyHp != null) // 에너미 체력 스크립트가 존재하면 -> 에너미
         {
@@ -71,29 +74,54 @@ public class HitCube : MonoBehaviour
         else // 드랍아이템 스크립트가 존재하지 않으면 -> 건물 오브젝트
         {
             // 건물 레시피 아이디 부여
-            if (other.CompareTag("Building1") && !builded1)
+            if (other.CompareTag("Building1"))
             {
                 id = 0;
-                builded1 = true;
-                Debug.Log("it's Building1");
-                building.Rebuild(recipeList.recipes[id]);
-            }
+                if(!recipeList.recipes[id].builded)
+                {
+                    recipeList.recipes[id].builded = true;
+                    Debug.Log("it's Building1");
+                    building.Rebuild(recipeList.recipes[id]);
 
-            if (other.CompareTag("Building2") && !builded2)
+                    // 건물이 지어졌다면 sprite 변경
+                    if (recipeList.recipes[id].builded == true)
+                    {
+                        buildingSprite.sprite = sprites[1];
+                    }
+                }
+            }
+            else if (other.CompareTag("Building2"))
             {
                 id = 1;
-                builded2 = true;
-                Debug.Log("it's Building2");
-                building.Rebuild(recipeList.recipes[id]);
-            }
+                if (!recipeList.recipes[id].builded)
+                {
+                    recipeList.recipes[id].builded = true;
+                    Debug.Log("it's Building2");
+                    building.Rebuild(recipeList.recipes[id]);
 
-            if (other.CompareTag("Building3") && !builded3)
+                    // 건물이 지어졌다면 sprite 변경
+                    if (recipeList.recipes[id].builded == true)
+                    {
+                        buildingSprite.sprite = sprites[1];
+                    }
+                }
+            }
+            else if (other.CompareTag("Building3"))
             {
                 id = 2;
-                builded3 = true;
-                Debug.Log("it's Building3");
-                building.Rebuild(recipeList.recipes[id]);
+                // 1번과 2번이 지어진 상태이고
+                if(recipeList.recipes[id - 1].builded && recipeList.recipes[id - 2].builded)
+                {
+                    // 3번이 지어지지 않은 상태라면
+                    if (!recipeList.recipes[id].builded)
+                    {
+                        recipeList.recipes[id].builded = true;
+                        Debug.Log("it's Building3");
+                        building.Rebuild(recipeList.recipes[id]);
+                    }
+                }
             }
+            sprites = null; // 배열 초기화
         }
     }
 }

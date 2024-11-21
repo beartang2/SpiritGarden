@@ -29,7 +29,7 @@ public class Rebuilding : MonoBehaviour
         {
             inventory.Remove(recipe.elements[i].item, recipe.elements[i].count);
         }
-
+        
         Debug.Log("재건 완료!");
     }
 }

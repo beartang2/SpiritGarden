@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
-    // 이동할 맵의 씬 넘버 설정 (농장:0, 동굴:1, 사냥터:2)
+    // 이동할 맵의 씬 넘버 설정 (농장:1, 동굴:2, 사냥터:3)
     [SerializeField] private int portalID = 0;
 
     private void OnCollisionEnter(Collision collision)

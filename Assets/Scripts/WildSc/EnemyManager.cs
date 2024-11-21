@@ -33,10 +33,10 @@ public class EnemyManager : MonoBehaviour
     {
         Bounds bounds = spawnRange.bounds;
 
-        float randomX = Random.Range(-bounds.size.x / 2, bounds.size.x / 2);
-        float randomZ = Random.Range(-bounds.size.z / 2, bounds.size.z / 2);
+        float randomX = Random.Range(-spawnRange.size.x / 2, spawnRange.size.x / 2);
+        float randomZ = Random.Range(-spawnRange.size.z / 2, spawnRange.size.z / 2);
 
-        return new Vector3(randomX, bounds.center.y, randomZ);
+        return new Vector3(bounds.center.x + randomX, bounds.center.y, bounds.center.z + randomZ);
     }
 
     public void SpawnEnemy()

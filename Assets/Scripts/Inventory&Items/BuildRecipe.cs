@@ -6,5 +6,6 @@ using UnityEngine;
 public class BuildRecipe : ScriptableObject
 {
     public List<ItemSlot> elements;
+    public bool builded = false;
     //public ItemSlot output;
 }

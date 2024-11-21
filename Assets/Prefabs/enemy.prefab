@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4622126627973813579
 Transform:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: c8782aa15e07490479f836006714edfb, type: 2}
   itemCntDrop: 1
   dropCnt: 2
-  yOffset: 0
+  yOffset: 0.5
 --- !u!1 &2137930812808061897
 GameObject:
   m_ObjectHideFlags: 0
