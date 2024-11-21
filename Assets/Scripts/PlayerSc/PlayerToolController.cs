@@ -87,18 +87,21 @@ public class PlayerToolController : MonoBehaviour
             }
         }
 
-        // 씨앗을 심을 수 있는 타일이고 씨앗이 심어지지 않은 타일이면 씨앗을 심음
-        if (currentTileData.seedable == true && seedTile == null)
+        // 씨앗을 심을 수 있는 타일이거나 씨앗이 심어지지 않은 타일이면 씨앗을 심음
+        if (currentTileData.seedable == true || seedTile == null)
         {
             if(item != null && item.Name == "Sickle")
             {
                 // 현재 선택한 타일에 이미 식물이 심어져 있는지 확인
                 if (!plantedPositions.Contains(selectedTilePos))
                 {
-                    // 씨앗 심기
-                    cropManager.Seed(selectedTilePos);
-                    plantedPositions.Add(selectedTilePos); // 심은 위치 정보 추가
-                    Debug.Log("씨앗을 심었다!");
+                    if(cropManager.UsingSeed())
+                    {
+                        // 씨앗 심기
+                        cropManager.Seed(selectedTilePos);
+                        plantedPositions.Add(selectedTilePos); // 심은 위치 정보 추가
+                        Debug.Log("씨앗을 심었다!");
+                    }
                 }
                 else if(currentTile.name == "Land")
                 {

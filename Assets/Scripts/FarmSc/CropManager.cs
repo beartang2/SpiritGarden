@@ -27,6 +27,9 @@ public class CropManager : MonoBehaviour
     [SerializeField] private float seedGrowthTime = 480f;
     [SerializeField] private float landDryTime = 240f;
     [SerializeField] GameObject growingPlantPrefab; // 식물 오브젝트
+    [SerializeField] ItemContainer inventory;
+
+    public Item seed;
 
     Dictionary<Vector2Int, Crop> crops;
     private Vector3Int tilePos; // 타일 위치
@@ -35,7 +38,6 @@ public class CropManager : MonoBehaviour
     //private float timer = 0f;
 
     public Dictionary<Vector3Int, CropTile> cropTiles = new Dictionary<Vector3Int, CropTile>();
-
 
     private void Start()
     {
@@ -83,6 +85,27 @@ public class CropManager : MonoBehaviour
         }
     }
 
+    public bool UsingSeed()
+    {
+        bool seedable = true;
+
+        if (inventory.CheckItem(seed) == false)
+        {
+            Debug.Log("씨앗이 부족합니다");
+            seedable = false;
+        }
+
+        if (!seedable)
+        {
+            return false; // 재료 부족
+        }
+
+        inventory.Remove(seed, 1);
+
+        Debug.Log("씨앗 심기 완료!");
+        return true; // 씨앗 심기 성공
+    }
+
     public void Watering(Vector3Int position)
     {
         //if(crops.ContainsKey((Vector2Int)position))
@@ -98,11 +121,17 @@ public class CropManager : MonoBehaviour
         //Crop crop = new Crop();
         //crops.Add((Vector2Int)position, crop);
 
-        if (cropTiles.ContainsKey(position))
+        if (!cropTiles.ContainsKey(position))
+        {
+            CropTile newCropTile = new CropTile { growTimer = 0f, isWatered = true, hasSeed = false };
+            cropTiles.Add(position, newCropTile);
+            targetTile.SetTile(position, watered); // 물을 준 타일로 변경
+            //Debug.Log("물 준 타일: " + position);
+        }
+        else if(cropTiles.ContainsKey(position))
         {
             cropTiles[position].isWatered = true; // 물을 준 상태로 변경
             targetTile.SetTile(position, watered); // 물을 준 타일로 변경
-            Debug.Log("물 준 타일: " + position);
         }
 
         //targetTile.SetTile((Vector3Int)position, watered);
@@ -131,9 +160,14 @@ public class CropManager : MonoBehaviour
         {
             CropTile newCropTile = new CropTile { growTimer = 0f, isWatered = false, hasSeed = true };
             cropTiles.Add(position, newCropTile);
-            seedTile.SetTile((Vector3Int)position, seeded);
-
-            Debug.Log("seeded");
+            seedTile.SetTile(position, seeded);
+            //Debug.Log("seeded");
+        }
+        else if(cropTiles.ContainsKey(position))
+        {
+            cropTiles[position].hasSeed = true; // 씨앗을 심은 상태로 변경
+            seedTile.SetTile(position, seeded);
+            Debug.Log("심었따");
         }
 
         //StartCoroutine(StarPlantTimer(position ,seedTilePos));

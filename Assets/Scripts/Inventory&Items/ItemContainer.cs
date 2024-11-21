@@ -104,7 +104,7 @@ public class ItemContainer : ScriptableObject
             }
         }
     }
-
+    
     internal bool CheckItem(ItemSlot checkingItem)
     {
         ItemSlot itemSlot = slots.Find(x => x.item == checkingItem.item);
@@ -116,7 +116,24 @@ public class ItemContainer : ScriptableObject
 
         if(checkingItem.item.stackable)
         {
-            return itemSlot.count > checkingItem.count;
+            return itemSlot.count >= checkingItem.count;
+        }
+
+        return true;
+    }
+    // 아이템 체크 함수 오버로딩
+    internal bool CheckItem(Item checkingItem)
+    {
+        ItemSlot itemSlot = slots.Find(x => x.item == checkingItem);
+
+        if (itemSlot == null)
+        {
+            return false;
+        }
+
+        if (checkingItem.stackable)
+        {
+            return itemSlot.count >= 1;
         }
 
         return true;

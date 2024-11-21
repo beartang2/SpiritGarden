@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8942ab57e880c6d4db029949b4bd6c9d, type: 3}
-  m_Name: Seedable
+  m_Name: Seedable_But_NotWaterable
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 11400000, guid: 0ffa45ff5cd84d5478a83bc6f547c20b, type: 2}
-  waterable: 1
+  - {fileID: 11400000, guid: ec079c1b63f7031429b4639081b80af9, type: 2}
+  waterable: 0
   seedable: 1
