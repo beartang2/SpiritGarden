@@ -13,9 +13,11 @@ public class DroppingItem : MonoBehaviour
     [SerializeField] GameObject dropItem; // 드랍될 아이템
     [SerializeField] float spread = 0.7f; // 아이템이 퍼질 범위
 
-    [SerializeField] Item item; // 아이템 종류
+    [SerializeField] List<Item> item; // 아이템 종류 리스트
+    //[SerializeField] Item item; // 아이템 종류
+    [SerializeField] Vector2Int itemCntDropRange = new Vector2Int(1, 5); //아이템 개수 범위
     [SerializeField] int itemCntDrop = 1; // 드랍될 아이템의 개수
-    [SerializeField] int dropCnt = 5; // 드랍 횟수
+    //[SerializeField] int dropCnt = 5; // 드랍 횟수
 
     public float yOffset = 0f; // 높이 설정
 
@@ -47,18 +49,27 @@ public class DroppingItem : MonoBehaviour
 
     public void Hit()
     {
+        // 아이템 개수 랜덤 설정
+        int randomItemCnt = Random.Range(itemCntDropRange.x, itemCntDropRange.y + 1);
+
         // 드랍 횟수만큼 아이템을 드랍
-        while (dropCnt > 0)
+        while (randomItemCnt > 0)
         {
-            dropCnt -= 1;
+            randomItemCnt -= 1;
 
             Vector3 position = transform.position;
             position.x += spread * Random.value - spread / 2;
             position.z += spread * Random.value - spread / 2;
             position.y = yOffset;
 
+            // 아이템 종류 랜덤 선택
+            Item randomItem = item[Random.Range(0, item.Count)];
+
             // 아이템 생성
-            ItemSpawner.instance.SpawnItem(position, item, itemCntDrop);
+            ItemSpawner.instance.SpawnItem(position, randomItem, itemCntDrop); // 한개씩 드랍
+
+            // 아이템 생성
+            //ItemSpawner.instance.SpawnItem(position, item, itemCntDrop);
         }
 
         // 물체를 제거
@@ -67,18 +78,26 @@ public class DroppingItem : MonoBehaviour
 
     public void KillEnemy()
     {
+        // 아이템 개수 랜덤 설정
+        int randomItemCnt = Random.Range(itemCntDropRange.x, itemCntDropRange.y + 1);
+
         // 드랍 횟수만큼 아이템을 드랍
-        while (dropCnt > 0)
+        while (randomItemCnt > 0)
         {
-            dropCnt -= 1;
+            randomItemCnt -= 1;
 
             Vector3 position = transform.position;
             position.x += spread * Random.value - spread / 2;
             position.z += spread * Random.value - spread / 2;
             position.y = yOffset;
 
+            // 아이템 종류 랜덤 선택
+            Item randomItem = item[Random.Range(0, item.Count)];
+
             // 아이템 생성
-            ItemSpawner.instance.SpawnItem(position, item, itemCntDrop);
+            ItemSpawner.instance.SpawnItem(position, randomItem, randomItemCnt);
+            // 아이템 생성
+            //ItemSpawner.instance.SpawnItem(position, item, itemCntDrop);
         }
 
         // 에너미 비활성화

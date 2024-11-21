@@ -13,6 +13,8 @@ TagManager:
   - Building3
   - Enemy
   - ToolBox
+  - UI
+  - Building
   layers:
   - Default
   - TransparentFX

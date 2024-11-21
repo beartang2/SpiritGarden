@@ -6,7 +6,7 @@ public class Rebuilding : MonoBehaviour
 {
     [SerializeField] ItemContainer inventory;
 
-    public void Rebuild(BuildRecipe recipe)
+    public bool Rebuild(BuildRecipe recipe)
     {
         bool buildable = true;
 
@@ -20,16 +20,17 @@ public class Rebuilding : MonoBehaviour
             }
         }
 
-        if(buildable == false)
+        if (!buildable)
         {
-            return;
+            return false; // 재료 부족  
         }
 
-        for(int i=0; i<recipe.elements.Count; i++)
+        for (int i=0; i<recipe.elements.Count; i++)
         {
             inventory.Remove(recipe.elements[i].item, recipe.elements[i].count);
         }
         
         Debug.Log("재건 완료!");
+        return true; // 재건 성공
     }
 }

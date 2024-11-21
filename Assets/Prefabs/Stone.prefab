@@ -118,9 +118,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad587dbf2945e74191d4c99a8ec02a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dried: {fileID: 0}
+  targetTile: {fileID: 0}
+  seedTile: {fileID: 0}
   dropItem: {fileID: 7856482750098046178, guid: d233c5ee969508e4f9dc4e83af88829b, type: 3}
   spread: 0.7
-  item: {fileID: 11400000, guid: 8519f0a2f2a13b0459c69fc461797524, type: 2}
-  itemCntDrop: 1
+  item:
+  - {fileID: 11400000, guid: 8519f0a2f2a13b0459c69fc461797524, type: 2}
+  itemCntDropRange: {x: 1, y: 3}
   dropCnt: 2
   yOffset: 0.5

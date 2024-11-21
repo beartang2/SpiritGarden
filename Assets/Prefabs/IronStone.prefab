@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2058311026084521732
+--- !u!1 &1904839250287245076
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6583055277904715332}
-  - component: {fileID: 7221637254095928739}
-  - component: {fileID: 4724875082066969740}
-  - component: {fileID: 3133946941378049281}
-  - component: {fileID: 4475557637141481255}
+  - component: {fileID: 994910604263643162}
+  - component: {fileID: 4512901612519306188}
+  - component: {fileID: 5204250154361295716}
+  - component: {fileID: 1877160142280216042}
+  - component: {fileID: 3041446809687303379}
   m_Layer: 0
-  m_Name: Tree
-  m_TagString: Tree
+  m_Name: IronStone
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6583055277904715332
+--- !u!4 &994910604263643162
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058311026084521732}
+  m_GameObject: {fileID: 1904839250287245076}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalPosition: {x: 4.13, y: 0.5, z: -6.52}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
---- !u!33 &7221637254095928739
+--- !u!33 &4512901612519306188
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058311026084521732}
+  m_GameObject: {fileID: 1904839250287245076}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4724875082066969740
+--- !u!23 &5204250154361295716
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058311026084521732}
+  m_GameObject: {fileID: 1904839250287245076}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 74d8d44ccda83a14a95440ec8ee65075, type: 2}
+  - {fileID: 2100000, guid: a0e191c2fc8253642a88131152d89b8c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,13 +85,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3133946941378049281
+--- !u!65 &1877160142280216042
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058311026084521732}
+  m_GameObject: {fileID: 1904839250287245076}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -104,15 +104,15 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.24, y: 0.38657507, z: 1}
-  m_Center: {x: 0.020906674, y: -0.22857939, z: -0.000000062357664}
---- !u!114 &4475557637141481255
+  m_Size: {x: 0.74, y: 0.74091953, z: 1}
+  m_Center: {x: 0.0058897138, y: 0.023586601, z: -9.929315e-10}
+--- !u!114 &3041446809687303379
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058311026084521732}
+  m_GameObject: {fileID: 1904839250287245076}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ad587dbf2945e74191d4c99a8ec02a3, type: 3}
@@ -124,7 +124,8 @@ MonoBehaviour:
   dropItem: {fileID: 7856482750098046178, guid: d233c5ee969508e4f9dc4e83af88829b, type: 3}
   spread: 0.7
   item:
-  - {fileID: 11400000, guid: 90bef1c944c79aa499b2b7fc242ac60d, type: 2}
-  itemCntDropRange: {x: 1, y: 5}
-  dropCnt: 3
+  - {fileID: 11400000, guid: 8519f0a2f2a13b0459c69fc461797524, type: 2}
+  - {fileID: 11400000, guid: 6419b1277d582f143a81d842eb25a9dc, type: 2}
+  itemCntDropRange: {x: 1, y: 3}
+  itemCntDrop: 1
   yOffset: 0.5

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fc9b04ce0148931428195bad8157b2fb
+guid: 41d19cf12ae905344b59fb962f5198b8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,22 +97,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spirit-f_0
+      name: SpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 118
-        y: 55
-        width: 271
-        height: 362
-      alignment: 9
-      pivot: {x: 0.49999994, y: 0.0670052}
+        x: 32
+        y: 1967
+        width: 157
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69470248476e66448b09f9affbd0ef79
-      internalID: -836961747
+      spriteID: 07aa83dac2d060e4782a0fc6321f80a0
+      internalID: 92408780
       vertices: []
       indices: 
       edges: []
@@ -120,7 +120,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: c01c291e3e9f8404cbe04de7bad31515
     internalID: 0
     vertices: []
     indices: 
@@ -128,7 +128,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spirit-f_0: -836961747
+      SpriteSheet_0: 92408780
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

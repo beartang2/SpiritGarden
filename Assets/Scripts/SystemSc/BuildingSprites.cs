@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class BuildingSprites : MonoBehaviour
 {
-    public Sprite[] buildSprites;
+    public Sprite buildSprites;
 }
