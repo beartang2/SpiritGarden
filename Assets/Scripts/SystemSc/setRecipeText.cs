@@ -20,7 +20,7 @@ public class setRecipeText : MonoBehaviour
             return;
 
         // 기존 텍스트 초기화
-        recipeText.text = $"필요한 재료\n";
+        recipeText.text = $"필요한 재료\n\n";
 
         foreach (var items in recipe.elements)
         {

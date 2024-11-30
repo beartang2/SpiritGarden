@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -168,7 +168,7 @@ TextureImporter:
         width: 44
         height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,6 +176,69 @@ TextureImporter:
       bones: []
       spriteID: b2b96b7b7f1c8ca4c850b41c048119a5
       internalID: 931371812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 214
+        width: 248
+        height: 280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 752728d90c1061b49aa8835ae820051f
+      internalID: -454436672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 2048
+        width: 82
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0bcc00ac8e32d743894af88fadeb680
+      internalID: 1132436271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 751
+        width: 56
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e0cf2409e5c591428523fdf2f4776cf
+      internalID: -1393834890
       vertices: []
       indices: 
       edges: []
@@ -195,6 +258,9 @@ TextureImporter:
       SpriteSheet_1: 92408780
       SpriteSheet_2: -1234444318
       SpriteSheet_3: 931371812
+      SpriteSheet_4: -454436672
+      SpriteSheet_5: 1132436271
+      SpriteSheet_6: -1393834890
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

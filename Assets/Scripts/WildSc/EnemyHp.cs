@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public class EnemyHp : MonoBehaviour
 {
     [SerializeField] private Image enemyHpBarImage;
+    private DroppingItem droppingItem;
     private int maxEnemyHealth = 100;
     private int currentEnemyHealth;
-
-    private DroppingItem droppingItem;
+    private bool damaging = false;
+    private float damageDelay = 0f;
 
     public int Health
     {
@@ -31,10 +32,30 @@ public class EnemyHp : MonoBehaviour
         droppingItem = GetComponent<DroppingItem>();
     }
 
+    private void Update()
+    {
+        if (damaging)
+        {
+            damageDelay += Time.deltaTime;
+            if (damageDelay > 1f)
+            {
+                damaging = false; // 데미지 상태 해제
+                damageDelay = 0f; // 딜레이 초기화
+                //Debug.Log("딜레이 초기화");
+            }
+        }
+    }
+
     public void TakeDamage(int amount)
     {
-        Health -= amount;  // 프로퍼티를 통해 체력을 줄임
+        if (!damaging)
+        {
+            damaging = true;
+            
+            Health -= amount;  // 프로퍼티를 통해 체력을 줄임
 
+            Debug.Log("데미지 입음!");
+        }
         if (currentEnemyHealth < 0)
         {
             currentEnemyHealth = 0;

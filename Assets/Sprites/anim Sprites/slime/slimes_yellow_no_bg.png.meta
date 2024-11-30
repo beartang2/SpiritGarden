@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bade977c1481cd44390a9f1aeb252cc5
+guid: df0762832d79bab428c384efd0dbe8e0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: slimes_yellow_0
+      name: slimes_yellow_no_bg_0
       rect:
         serializedVersion: 2
         x: 4
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6e54bc071d8a764abbaf78fe7d62def
-      internalID: -42650447
+      spriteID: 8914075d8301d7c4b8b1844cc6608f6d
+      internalID: -1212357533
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_1
+      name: slimes_yellow_no_bg_1
       rect:
         serializedVersion: 2
         x: 50
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef59a6d3beebbdd418b3357a9accc2c5
-      internalID: 1582298913
+      spriteID: 4fe3b8dbbfe5d8d49b6c8fa4704ee7b6
+      internalID: -436635867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_2
+      name: slimes_yellow_no_bg_2
       rect:
         serializedVersion: 2
         x: 93
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e586a3b8222546d499c9d12bacbcb333
-      internalID: -994681885
+      spriteID: 0d3f1eb8317b5494787ae7d9ec2e4b86
+      internalID: 1996268782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_3
+      name: slimes_yellow_no_bg_3
       rect:
         serializedVersion: 2
         x: 142
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94eb65b82bbe84746a62077b4d598941
-      internalID: 1404768909
+      spriteID: 9c2eaf3917450fb4cba9765255307121
+      internalID: 1658893053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_4
+      name: slimes_yellow_no_bg_4
       rect:
         serializedVersion: 2
         x: 189
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 025d12394171bf140a57ff9af02c279c
-      internalID: 1604503483
+      spriteID: f1614710b1ad62346a8f31394fe819f2
+      internalID: -1815017086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_5
+      name: slimes_yellow_no_bg_5
       rect:
         serializedVersion: 2
         x: 235
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b5268ef032310647877d23554f112ae
-      internalID: 1372993118
+      spriteID: 4ea378425fd457b4aa963e3fd0608a7a
+      internalID: 646947734
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_6
+      name: slimes_yellow_no_bg_6
       rect:
         serializedVersion: 2
         x: 4
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43bb72cb82ad65b4bb52f253eff82e60
-      internalID: 1214614021
+      spriteID: abfe41e6ed0134f49bacb4fc0580f62b
+      internalID: 1522376337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_7
+      name: slimes_yellow_no_bg_7
       rect:
         serializedVersion: 2
         x: 50
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba695b1c68915b5439448e774048e990
-      internalID: 75240394
+      spriteID: 5fd2ba15b04113b46a2893af97e3ad6d
+      internalID: -199409027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_8
+      name: slimes_yellow_no_bg_8
       rect:
         serializedVersion: 2
         x: 93
@@ -279,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c55c6c37270a174196301711cd16eed
-      internalID: -289859409
+      spriteID: 0ca46b03563826c48bc6adc40a4a6ec5
+      internalID: -1794335323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_9
+      name: slimes_yellow_no_bg_9
       rect:
         serializedVersion: 2
         x: 142
@@ -300,14 +300,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbbe60ca8a9623843be997b4f9e77b77
-      internalID: 1736993635
+      spriteID: defc18421ac51fb46958d18618094c58
+      internalID: 1972355719
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_10
+      name: slimes_yellow_no_bg_10
       rect:
         serializedVersion: 2
         x: 189
@@ -321,14 +321,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00092ee5b91d56a43b0eb4781a9ed1fe
-      internalID: 1054642013
+      spriteID: 4978d02bb475f9140bb8d4a0eff3ddce
+      internalID: -1496518807
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_11
+      name: slimes_yellow_no_bg_11
       rect:
         serializedVersion: 2
         x: 235
@@ -342,14 +342,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96ae9200faee38345b5ca757ea133a80
-      internalID: 1664340725
+      spriteID: 207143d4a35ad1041a3dc09415970c27
+      internalID: 486965724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_12
+      name: slimes_yellow_no_bg_12
       rect:
         serializedVersion: 2
         x: 4
@@ -363,14 +363,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8cf21e28a5d22845b7c434251dd366e
-      internalID: -1208074808
+      spriteID: 2b2a44b8f29fd5a4fbf67237c0a91fb3
+      internalID: 946920778
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_13
+      name: slimes_yellow_no_bg_13
       rect:
         serializedVersion: 2
         x: 50
@@ -384,14 +384,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fa0a38d53fc67d419415f8f7dec6c1e
-      internalID: 269810477
+      spriteID: 15a1ebd026cec6a4b8cb9d407901066e
+      internalID: -1152121329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_14
+      name: slimes_yellow_no_bg_14
       rect:
         serializedVersion: 2
         x: 93
@@ -405,14 +405,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0da103508abb3347985f4cce2832699
-      internalID: -801178351
+      spriteID: bd68f784cd42714458af70783d82f2cd
+      internalID: -1422825175
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_15
+      name: slimes_yellow_no_bg_15
       rect:
         serializedVersion: 2
         x: 142
@@ -426,14 +426,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4c6a1dcfb510ab419d29c42f2835446
-      internalID: 123012780
+      spriteID: 4bc8f5d52f283b04180869fa0e38d9e5
+      internalID: 279886003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_16
+      name: slimes_yellow_no_bg_16
       rect:
         serializedVersion: 2
         x: 189
@@ -447,14 +447,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b2d9971ca99db64c948308adf92f4bd
-      internalID: -391727524
+      spriteID: 1bed4419952a56044971c7a716660a98
+      internalID: -1867174111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_17
+      name: slimes_yellow_no_bg_17
       rect:
         serializedVersion: 2
         x: 235
@@ -468,14 +468,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 142be5037b5d7d944a26800d612de293
-      internalID: -1267794808
+      spriteID: 74f03e7ef8da45a4a9c34bb7b93d5a02
+      internalID: -794893283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_18
+      name: slimes_yellow_no_bg_18
       rect:
         serializedVersion: 2
         x: 4
@@ -489,14 +489,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9597a21cf13cc5e43b2778ca4c4446cc
-      internalID: -1792147927
+      spriteID: 517ec889566e1d740a68d92837893a7c
+      internalID: -1262331769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_19
+      name: slimes_yellow_no_bg_19
       rect:
         serializedVersion: 2
         x: 50
@@ -510,14 +510,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea47cf51d377f6843a33b4a741a022ea
-      internalID: 685783880
+      spriteID: d9d6f9e7ad4c4e549a012619e06437aa
+      internalID: -829761384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_20
+      name: slimes_yellow_no_bg_20
       rect:
         serializedVersion: 2
         x: 93
@@ -531,14 +531,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6c6772d98b99a743bb3ec40e485b9de
-      internalID: 286619156
+      spriteID: 06050ee7e2166fb40a50c2bf47e1664d
+      internalID: 976016042
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_21
+      name: slimes_yellow_no_bg_21
       rect:
         serializedVersion: 2
         x: 142
@@ -552,14 +552,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3eede2835cedc446a6bf8c142e19dbe
-      internalID: -831270614
+      spriteID: 208b37b7d1c6980428752a69d0fcacee
+      internalID: 676686600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_22
+      name: slimes_yellow_no_bg_22
       rect:
         serializedVersion: 2
         x: 189
@@ -573,14 +573,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abc6bf7fd26236b4ca8c88a345d968c0
-      internalID: -469833433
+      spriteID: 2dcb4af62604dbc41a4a002c8be669e5
+      internalID: 1110831565
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_23
+      name: slimes_yellow_no_bg_23
       rect:
         serializedVersion: 2
         x: 235
@@ -594,14 +594,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a559ef413cca3554498c81de86501c2f
-      internalID: -165647459
+      spriteID: c4a2e5b8f6e9e8a4cb82c82d452aa1e9
+      internalID: -142188805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_24
+      name: slimes_yellow_no_bg_24
       rect:
         serializedVersion: 2
         x: 4
@@ -615,14 +615,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 887ba6e50a8ae5043a5ccfd9db69e1fc
-      internalID: 541861042
+      spriteID: 88fb75eb3c0792d4380fe5dab5780548
+      internalID: -328684441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_25
+      name: slimes_yellow_no_bg_25
       rect:
         serializedVersion: 2
         x: 50
@@ -636,14 +636,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ed18b7b5d3e1ed47a719de0e9381dff
-      internalID: -1452505512
+      spriteID: 7bd7799ec3613db48970d3571c191dee
+      internalID: 1613977654
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_26
+      name: slimes_yellow_no_bg_26
       rect:
         serializedVersion: 2
         x: 93
@@ -657,14 +657,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 582be9773440c644190b8d25c4b1b794
-      internalID: -1895992893
+      spriteID: 820af20627bcea545af95e8bc2b26475
+      internalID: 1892789255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_27
+      name: slimes_yellow_no_bg_27
       rect:
         serializedVersion: 2
         x: 142
@@ -678,14 +678,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f658f8455913b93449515e53b96abdc9
-      internalID: -1681844167
+      spriteID: ca7da29296c3fca45acd40a278bd5dbe
+      internalID: 1652464355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_28
+      name: slimes_yellow_no_bg_28
       rect:
         serializedVersion: 2
         x: 189
@@ -699,14 +699,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9518ce82370ce54db7da71213df07f1
-      internalID: 1975981025
+      spriteID: 7e56707f2d7064348825aa6d8dcbd51e
+      internalID: 599746913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_29
+      name: slimes_yellow_no_bg_29
       rect:
         serializedVersion: 2
         x: 235
@@ -720,14 +720,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1b66379d53628a4baa6d7caae081233
-      internalID: 1057965335
+      spriteID: 780358c356f881046825ab5571d47716
+      internalID: 604365111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_30
+      name: slimes_yellow_no_bg_30
       rect:
         serializedVersion: 2
         x: 4
@@ -741,14 +741,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18503d5ba7468de40b4acca6f51f751f
-      internalID: 1430883616
+      spriteID: 5cf23ceb635ee3944896317f5029213b
+      internalID: 371615110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_31
+      name: slimes_yellow_no_bg_31
       rect:
         serializedVersion: 2
         x: 50
@@ -762,14 +762,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3708e40877168742afbf66bc4cbc810
-      internalID: -281309588
+      spriteID: ee53154a7985545478bd95056d061ac5
+      internalID: 1121444820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_32
+      name: slimes_yellow_no_bg_32
       rect:
         serializedVersion: 2
         x: 93
@@ -783,14 +783,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69091e9a0fa424c4194900c67fef201e
-      internalID: 473797676
+      spriteID: da6359aa173b9984081526efb354d88a
+      internalID: 782528323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_33
+      name: slimes_yellow_no_bg_33
       rect:
         serializedVersion: 2
         x: 142
@@ -804,14 +804,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee26365f7db51904fb398bb72423fb23
-      internalID: 1292037384
+      spriteID: f9eb0ef9fc7b56a45b8c58a2a282561a
+      internalID: 1211187183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_34
+      name: slimes_yellow_no_bg_34
       rect:
         serializedVersion: 2
         x: 189
@@ -825,14 +825,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a17461b1eb760a4b952d7da26935327
-      internalID: 1755063104
+      spriteID: 4e25fc4229f1868499aa0bb314db43ec
+      internalID: 350582058
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slimes_yellow_35
+      name: slimes_yellow_no_bg_35
       rect:
         serializedVersion: 2
         x: 235
@@ -846,8 +846,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44669efe5097d154eb54d5ea11760c05
-      internalID: 387525686
+      spriteID: 326686776e6d1ad4eb1bea6966314a92
+      internalID: -1849805807
       vertices: []
       indices: 
       edges: []
@@ -855,7 +855,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: cfebb113e378520488955d624a2ac90c
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -863,42 +863,42 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      slimes_yellow_0: -42650447
-      slimes_yellow_1: 1582298913
-      slimes_yellow_10: 1054642013
-      slimes_yellow_11: 1664340725
-      slimes_yellow_12: -1208074808
-      slimes_yellow_13: 269810477
-      slimes_yellow_14: -801178351
-      slimes_yellow_15: 123012780
-      slimes_yellow_16: -391727524
-      slimes_yellow_17: -1267794808
-      slimes_yellow_18: -1792147927
-      slimes_yellow_19: 685783880
-      slimes_yellow_2: -994681885
-      slimes_yellow_20: 286619156
-      slimes_yellow_21: -831270614
-      slimes_yellow_22: -469833433
-      slimes_yellow_23: -165647459
-      slimes_yellow_24: 541861042
-      slimes_yellow_25: -1452505512
-      slimes_yellow_26: -1895992893
-      slimes_yellow_27: -1681844167
-      slimes_yellow_28: 1975981025
-      slimes_yellow_29: 1057965335
-      slimes_yellow_3: 1404768909
-      slimes_yellow_30: 1430883616
-      slimes_yellow_31: -281309588
-      slimes_yellow_32: 473797676
-      slimes_yellow_33: 1292037384
-      slimes_yellow_34: 1755063104
-      slimes_yellow_35: 387525686
-      slimes_yellow_4: 1604503483
-      slimes_yellow_5: 1372993118
-      slimes_yellow_6: 1214614021
-      slimes_yellow_7: 75240394
-      slimes_yellow_8: -289859409
-      slimes_yellow_9: 1736993635
+      slimes_yellow_no_bg_0: -1212357533
+      slimes_yellow_no_bg_1: -436635867
+      slimes_yellow_no_bg_10: -1496518807
+      slimes_yellow_no_bg_11: 486965724
+      slimes_yellow_no_bg_12: 946920778
+      slimes_yellow_no_bg_13: -1152121329
+      slimes_yellow_no_bg_14: -1422825175
+      slimes_yellow_no_bg_15: 279886003
+      slimes_yellow_no_bg_16: -1867174111
+      slimes_yellow_no_bg_17: -794893283
+      slimes_yellow_no_bg_18: -1262331769
+      slimes_yellow_no_bg_19: -829761384
+      slimes_yellow_no_bg_2: 1996268782
+      slimes_yellow_no_bg_20: 976016042
+      slimes_yellow_no_bg_21: 676686600
+      slimes_yellow_no_bg_22: 1110831565
+      slimes_yellow_no_bg_23: -142188805
+      slimes_yellow_no_bg_24: -328684441
+      slimes_yellow_no_bg_25: 1613977654
+      slimes_yellow_no_bg_26: 1892789255
+      slimes_yellow_no_bg_27: 1652464355
+      slimes_yellow_no_bg_28: 599746913
+      slimes_yellow_no_bg_29: 604365111
+      slimes_yellow_no_bg_3: 1658893053
+      slimes_yellow_no_bg_30: 371615110
+      slimes_yellow_no_bg_31: 1121444820
+      slimes_yellow_no_bg_32: 782528323
+      slimes_yellow_no_bg_33: 1211187183
+      slimes_yellow_no_bg_34: 350582058
+      slimes_yellow_no_bg_35: -1849805807
+      slimes_yellow_no_bg_4: -1815017086
+      slimes_yellow_no_bg_5: 646947734
+      slimes_yellow_no_bg_6: 1522376337
+      slimes_yellow_no_bg_7: -199409027
+      slimes_yellow_no_bg_8: -1794335323
+      slimes_yellow_no_bg_9: 1972355719
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

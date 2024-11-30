@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elements:
   - item: {fileID: 11400000, guid: c8782aa15e07490479f836006714edfb, type: 2}
-    count: 3
+    count: 10
   - item: {fileID: 11400000, guid: 6419b1277d582f143a81d842eb25a9dc, type: 2}
-    count: 5
-  - item: {fileID: 11400000, guid: 8519f0a2f2a13b0459c69fc461797524, type: 2}
     count: 15
+  - item: {fileID: 11400000, guid: 8519f0a2f2a13b0459c69fc461797524, type: 2}
+    count: 35
   - item: {fileID: 11400000, guid: 9723180364091dd4eb5c90d439717522, type: 2}
-    count: 20
+    count: 50
+  - item: {fileID: 11400000, guid: a1a9857d117970f4098691ca09886044, type: 2}
+    count: 5
   builded: 0

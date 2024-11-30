@@ -6,6 +6,8 @@ public class PlayerHp : MonoBehaviour
     [SerializeField] private Image hpBarImage; // 체력바 이미지
     private int maxHealth = 100;
     private int currentHealth;
+    private bool damaging = false;
+    private float damageDelay = 0f;
 
     public int Health
     {
@@ -25,12 +27,29 @@ public class PlayerHp : MonoBehaviour
         currentHealth = maxHealth; // 게임 시작 시 체력을 최대값으로 초기화
     }
 
+    private void Update()
+    {
+        // 데미지 딜레이 관리
+        if (damaging)
+        {
+            damageDelay += Time.deltaTime;
+            if (damageDelay > 1f)
+            {
+                damaging = false; // 데미지 상태 해제
+                damageDelay = 0f; // 딜레이 초기화
+                //Debug.Log("딜레이 초기화");
+            }
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag == "Enemy" && !damaging)
         {
+            damaging = true;
             TakeDamage(10);
             Debug.Log("데미지 입음! -10\n" + "현재 데미지 : " + currentHealth);
+
         }
     }
     private void UpdateHealthBar()

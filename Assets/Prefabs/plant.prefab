@@ -52,9 +52,11 @@ MonoBehaviour:
   seedTile: {fileID: 0}
   dropItem: {fileID: 7856482750098046178, guid: d233c5ee969508e4f9dc4e83af88829b, type: 3}
   spread: 0.7
-  item: {fileID: 11400000, guid: 9723180364091dd4eb5c90d439717522, type: 2}
+  item:
+  - {fileID: 11400000, guid: 9723180364091dd4eb5c90d439717522, type: 2}
+  - {fileID: 11400000, guid: 41e587c7a9fbe184fab4cadc0c31234d, type: 2}
+  itemCntDropRange: {x: 1, y: 3}
   itemCntDrop: 1
-  dropCnt: 3
   yOffset: 0.5
 --- !u!65 &8228010179241680505
 BoxCollider:

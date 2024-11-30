@@ -54,6 +54,11 @@ public class HitCube : MonoBehaviour
                 enemyHp.TakeDamage(4);
                 Debug.Log("'낫'으로 적을 타격하였다! 4 데미지");
             }
+            if (other.CompareTag("Enemy") && item.Name == null)
+            {
+                enemyHp.TakeDamage(2);
+                Debug.Log("'손'으로 적을 타격하였다! 2 데미지");
+            }
         }
         else if (droppingItem != null) // 드랍아이템 스크립트가 존재하면 -> 물체
         {
