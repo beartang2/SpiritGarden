@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Presets;
 using UnityEngine;
 
 public class HitCube : MonoBehaviour
@@ -10,6 +11,8 @@ public class HitCube : MonoBehaviour
     [SerializeField] TileMapReadController tileReadCont; // 타일을 읽는 스크립트
     [SerializeField] Rebuilding building; //건축 스크립트
     [SerializeField] RecipeList recipeList; // 레시피 리스트
+    [SerializeField] LightingManager lightManager; // 라이팅 매니저 스크립트
+    LightingPreset preset;
 
     private Vector3Int tilePos;
 
@@ -64,8 +67,13 @@ public class HitCube : MonoBehaviour
         {
             if (other.CompareTag("Plant") && tileReadCont != null)
             {
-                tilePos = tileReadCont.GetGridPosition(gameObject.transform.position);
-                dropItemSc.HarvestPlant(tilePos);
+                if(item.Name == "Sickle")
+                {
+                Debug.Log("풀");
+                    tilePos = tileReadCont.GetGridPosition(gameObject.transform.position);
+                    dropItemSc.HarvestPlant(tilePos);
+                    droppingItem.Hit();
+                }
             }
             if (other.CompareTag("Stone") && item.Name == "Pickaxe")
             {
@@ -172,7 +180,9 @@ public class HitCube : MonoBehaviour
     {
         { "Building1", 0 },
         { "Building2", 1 },
-        { "Building3", 2 }
+        { "Building3", 2 },
+        { "Building4", 3 },
+        { "Building5", 4 }
     };
 
         if (buildingIds.TryGetValue(other.tag, out int id))
@@ -204,6 +214,11 @@ public class HitCube : MonoBehaviour
                 {
                     recipeList.recipes[id].builded = true;
                     buildingSpriteRenderer.sprite = sprites; // 스프라이트 변경
+                    if(id > 1)
+                    {
+                        Debug.Log("어둠이 점차 사라져간다");
+                        lightManager.vignette.intensity.value -= 0.15f;
+                    }
                     Debug.Log($"{other.tag} successfully built!");
                 }
                 else

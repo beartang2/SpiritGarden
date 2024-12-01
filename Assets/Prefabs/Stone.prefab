@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5204250154361295716}
   - component: {fileID: 1877160142280216042}
   - component: {fileID: 3041446809687303379}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Stone
   m_TagString: Stone
   m_Icon: {fileID: 0}
@@ -126,5 +126,5 @@ MonoBehaviour:
   item:
   - {fileID: 11400000, guid: 8519f0a2f2a13b0459c69fc461797524, type: 2}
   itemCntDropRange: {x: 1, y: 3}
-  dropCnt: 2
+  itemCntDrop: 1
   yOffset: 0.5

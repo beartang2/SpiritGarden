@@ -30,6 +30,7 @@ public class FollowPlayer : MonoBehaviour
         rigid = this.gameObject.GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         startPos = transform.position;
+        agent.Warp(transform.position);
         agent.updateRotation = false;
     }
 

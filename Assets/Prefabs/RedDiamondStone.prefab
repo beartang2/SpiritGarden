@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5204250154361295716}
   - component: {fileID: 1877160142280216042}
   - component: {fileID: 3041446809687303379}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RedDiamondStone
   m_TagString: Stone
   m_Icon: {fileID: 0}

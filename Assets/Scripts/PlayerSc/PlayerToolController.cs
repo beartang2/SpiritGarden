@@ -72,7 +72,7 @@ public class PlayerToolController : MonoBehaviour
     {
         Item item = toolbarCont.GetItem;
 
-        if (tileReadCont.tileMap == null)
+        if (tileReadCont.tileMap == null || currentTileData == null)
         {
             return;
         }
@@ -88,7 +88,7 @@ public class PlayerToolController : MonoBehaviour
         }
 
         // 씨앗을 심을 수 있는 타일이거나 씨앗이 심어지지 않은 타일이면 씨앗을 심음
-        if (currentTileData.seedable == true || seedTile == null)
+        if (currentTileData.seedable == true && seedTile == null)
         {
             if(item != null && item.Name == "Sickle")
             {

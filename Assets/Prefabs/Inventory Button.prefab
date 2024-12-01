@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 5199316342833505379}
   - component: {fileID: 2461802211746028606}
   - component: {fileID: 4594737091315663174}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Inventory Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}

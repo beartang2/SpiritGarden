@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Seed
   stackable: 1
-  icon: {fileID: 21300000, guid: 51a5c4171ac9b504a945c1c0f2c811b4, type: 3}
-  crop: {fileID: 0}
+  icon: {fileID: 21300000, guid: 495d09bb106d8b240b91d77ef1b8b81c, type: 3}

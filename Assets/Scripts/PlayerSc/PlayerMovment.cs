@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;            // 캐릭터의 Rigidbody
     private Animator anim;           // 캐릭터 애니메이터
 
-    void Awake()
+    private void Awake()
     {
         // Rigidbody 컴포넌트 가져오기
         rb = GetComponent<Rigidbody>();
@@ -28,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         isMoving = false;                     // 처음에는 이동 중이 아님
     }
 
-    void Update()
+    private void Update()
     {
         // 마우스 우클릭 감지
         if (Input.GetMouseButton(1))
@@ -39,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         // 목표 지점으로 캐릭터 이동
         if (isMoving)
         {
+            CheckFront();
             MoveToTarget();
         }
 
@@ -47,13 +49,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // 마우스 우클릭한 위치로 목표 지점을 설정
-    void SetTargetPosition()
+    private void SetTargetPosition()
     {
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);  // 마우스 위치에서 광선을 발사
         RaycastHit hit;
 
         // 광선이 충돌한 지점이 있으면 그 지점을 목표 위치로 설정
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit) && hit.transform.tag == "Ground")
         {
             targetPosition = hit.point;  // 충돌한 지점을 목표로 설정
             isMoving = true;             // 이동 시작
@@ -61,8 +63,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // 캐릭터를 목표 지점으로 이동
-    void MoveToTarget()
+    private void MoveToTarget()
     {
+        // 지정 위치가 너무 멀어지면 움직이지 않음
+        if(Vector3.Distance(rb.position, targetPosition) > 15f)
+        {
+            isMoving = false;
+        }
         // 현재 위치에서 목표 지점으로 부드럽게 이동
         Vector3 newPosition = Vector3.MoveTowards(rb.position, targetPosition, moveSpeed * Time.deltaTime);
         rb.MovePosition(newPosition);  // Rigidbody를 사용하여 이동
@@ -81,8 +88,22 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // 앞에 물체가 있는지 확인
+    private void CheckFront()
+    {
+        Ray ray2 = new Ray(gameObject.transform.position, (targetPosition - rb.position).normalized);
+        RaycastHit hitObj;
+
+        Physics.Raycast(ray2, out hitObj, 0.05f);
+
+        if(hitObj.collider)
+        {
+            isMoving = false; // 이동 멈춤
+        }
+    }
+
     // 애니메이터 상태 업데이트
-    void UpdateAnimator()
+    private void UpdateAnimator()
     {
         // 캐릭터가 이동하지 않는다면 애니메이션을 중지
         if (!isMoving)

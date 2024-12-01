@@ -42,7 +42,7 @@ public class DroppingItem : MonoBehaviour
             // 타일맵에서 해당 타일을 빈 상태로 변경 (예: 땅 타일)
             seedTile.SetTile(position, null); // 씨앗 타일 제거
             targetTile.SetTile(position, dried); // 다시 말라 있는 땅으로 변경
-
+            
             Debug.Log("식물 수확 완료: " + position);
         }
     }
