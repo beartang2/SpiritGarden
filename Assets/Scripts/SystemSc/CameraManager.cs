@@ -8,8 +8,18 @@ public class CameraManager : MonoBehaviour
 {
     public PostProcessVolume postProcessVolume;
     public PostProcessProfile[] mapProfiles;
+    public Color[] mapColors;
+    Camera cam;
 
-    public void ChangeProfile(int mapIndex)
+    public int mapCnt;
+
+    private void Start()
+    {
+        cam = GetComponent<Camera>();
+        cam.clearFlags = CameraClearFlags.SolidColor;
+    }
+
+    public void ChangeProfile(int mapIndex, int mapCount)
     {
         if (mapIndex < 0 || mapIndex >= mapProfiles.Length)
         {
@@ -17,11 +27,13 @@ public class CameraManager : MonoBehaviour
             return;
         }
 
+        // 0¹øÀº µ¿±¼ 1¹øÀº ³óÀå
         postProcessVolume.profile = mapProfiles[mapIndex];
+        cam.backgroundColor = mapColors[mapCount];
     }
 
-    internal void ChangeProfile(object currentMapIndex)
+    public void UpdateProfile()
     {
-        throw new NotImplementedException();
+        cam.backgroundColor = mapColors[mapCnt];
     }
 }

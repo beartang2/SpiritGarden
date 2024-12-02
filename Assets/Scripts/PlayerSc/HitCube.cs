@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Presets;
 using UnityEngine;
+using static Unity.Burst.Intrinsics.X86;
 
 public class HitCube : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class HitCube : MonoBehaviour
     [SerializeField] Rebuilding building; //건축 스크립트
     [SerializeField] RecipeList recipeList; // 레시피 리스트
     [SerializeField] LightingManager lightManager; // 라이팅 매니저 스크립트
+    [SerializeField] CameraManager camSc; // 카메라 스크립트
     LightingPreset preset;
 
     private Vector3Int tilePos;
@@ -216,8 +218,13 @@ public class HitCube : MonoBehaviour
                     buildingSpriteRenderer.sprite = sprites; // 스프라이트 변경
                     if(id > 1)
                     {
-                        Debug.Log("어둠이 점차 사라져간다");
-                        lightManager.vignette.intensity.value -= 0.15f;
+                        //lightManager.vignette.intensity.value -= 0.15f;
+                        camSc.mapCnt++;
+                        if(id != 3)
+                        {
+                            camSc.UpdateProfile();
+                        }
+                        Debug.Log("어둠이 점차 사라져간다" + lightManager.vignette.intensity.value);
                     }
                     Debug.Log($"{other.tag} successfully built!");
                 }

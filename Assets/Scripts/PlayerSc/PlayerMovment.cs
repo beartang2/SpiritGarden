@@ -37,15 +37,18 @@ public class PlayerMovement : MonoBehaviour
             SetTargetPosition();  // 마우스 우클릭한 위치로 목표 설정
         }
 
+        // 이동 중이 아닌 경우 애니메이터 상태 업데이트
+        UpdateAnimator();
+    }
+
+    private void FixedUpdate()
+    {
         // 목표 지점으로 캐릭터 이동
         if (isMoving)
         {
-            CheckFront();
+            //CheckFront();
             MoveToTarget();
         }
-
-        // 이동 중이 아닌 경우 애니메이터 상태 업데이트
-        UpdateAnimator();
     }
 
     // 마우스 우클릭한 위치로 목표 지점을 설정
@@ -88,18 +91,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.tag != "Ground")
+        {
+            CheckFront();            
+        }
+    }
+
     // 앞에 물체가 있는지 확인
     private void CheckFront()
     {
-        Ray ray2 = new Ray(gameObject.transform.position, (targetPosition - rb.position).normalized);
-        RaycastHit hitObj;
-
-        Physics.Raycast(ray2, out hitObj, 0.05f);
-
-        if(hitObj.collider)
-        {
-            isMoving = false; // 이동 멈춤
-        }
+        isMoving = false; // 이동 멈춤
     }
 
     // 애니메이터 상태 업데이트

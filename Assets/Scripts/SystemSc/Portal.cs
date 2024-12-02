@@ -15,23 +15,31 @@ public class Portal : MonoBehaviour
     [SerializeField] private CameraManager mapManager;
     [SerializeField] private GameObject hp_Canvas;
     [SerializeField] private NavMeshAgent navMeshAgent;
+    [SerializeField] private Text timeText;
+    [SerializeField] CameraManager camSc;
+
+    public Color[] textColors;
 
     private bool isWarped = false;
+
+    private void Start()
+    {
+        hp_Canvas.SetActive(false); // 시작은 사냥터가 아니므로 비활성화
+    }
 
     private void OnTriggerEnter(Collider col)
     {
         if(!isWarped && portalID == 1) // 동굴->농장
         {
             // 카메라 포스트프로세싱 프로파일 설정
-            mapManager.ChangeProfile(1);
+            mapManager.ChangeProfile(1, camSc.mapCnt);
+            // 시간 텍스트 색상 변경
+            timeText.color = textColors[1];
 
             // 포탈 타는 효과음 한번만 재생
 
             // hp UI 비활성화
             hp_Canvas.SetActive(false);
-
-            // 몬스터 agent 이동 비활성화
-            navMeshAgent.isStopped = true;
 
             player.position = new Vector3 (portals[1].transform.position.x,
                 0.79f,
@@ -43,15 +51,14 @@ public class Portal : MonoBehaviour
         else if (!isWarped && portalID == 2) // 농장->동굴
         {
             // 카메라 포스트프로세싱 프로파일 설정
-            mapManager.ChangeProfile(0);
+            mapManager.ChangeProfile(0, 0);
+            // 시간 텍스트 색상 변경
+            timeText.color = textColors[0];
 
             // 포탈 타는 효과음 한번만 재생
 
             // hp UI 비활성화
             hp_Canvas.SetActive(false);
-
-            // 몬스터 agent 이동 비활성화
-            navMeshAgent.isStopped = true;
 
             player.position = new Vector3(
                 portals[0].transform.position.x - 3,
@@ -66,8 +73,8 @@ public class Portal : MonoBehaviour
             // hp UI 활성화
             hp_Canvas.SetActive(true);
 
-            // 몬스터 이동 활성화
-            navMeshAgent.isStopped = false;
+            // 시간 텍스트 색상 변경
+            timeText.color = textColors[2];
 
             // 포탈 타는 효과음 한번만 재생
 
@@ -84,14 +91,14 @@ public class Portal : MonoBehaviour
             // hp UI 비활성화
             hp_Canvas.SetActive(false);
 
-            // 몬스터 agent 이동 비활성화
-            navMeshAgent.isStopped = true;
+            // 시간 텍스트 색상 변경
+            timeText.color = textColors[1];
 
             // 포탈 타는 효과음 한번만 재생
 
             player.position = new Vector3(
                 portals[2].transform.position.x - 3,
-                1.5f,
+                0.79f,
                 portals[2].transform.position.z); // 농장포탈2 좌표
 
             isWarped = true;

@@ -21,7 +21,7 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 1
-    value: {r: 0.41384834, g: 0.38487893, b: 0.8773585, a: 1}
+    value: {r: 0.5896226, g: 0.92440414, b: 1, a: 1}
   center:
     overrideState: 0
     value: {x: 0.5, y: 0.5}
@@ -30,7 +30,7 @@ MonoBehaviour:
     value: 0.5
   smoothness:
     overrideState: 1
-    value: 0.5
+    value: 0.2
   roundness:
     overrideState: 0
     value: 0.5
@@ -1408,7 +1408,7 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 1
-    value: {r: 1, g: 0.8322895, b: 0.2235294, a: 1}
+    value: {r: 1, g: 0.9615643, b: 0.8915094, a: 1}
   fastMode:
     overrideState: 0
     value: 1
