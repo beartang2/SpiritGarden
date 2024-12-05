@@ -47,6 +47,7 @@ public class InteractBoxController : MonoBehaviour
             // 레이가 땅에 맞았는지 확인
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
             {
+                /*
                 // 클릭한 위치와 캐릭터 사이의 방향 계산 (Y축 고정)
                 Vector3 targetDirection = (hit.point - player.position).normalized;
                 targetDirection.y = 0;  // Y축 무시하여 수평 방향만 계산
@@ -68,6 +69,7 @@ public class InteractBoxController : MonoBehaviour
 
                 // 큐브의 Y축 고정
                 cube.position = new Vector3(cube.position.x, fixedY, cube.position.z);
+                */
 
                 // 콜라이더를 잠시 켰다가 끄는 코루틴 실행
                 StartCoroutine(ActivateColliderTemporarily());

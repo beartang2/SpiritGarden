@@ -3,13 +3,13 @@ using UnityEngine;
 public class showRecipeUI : MonoBehaviour
 {
     [SerializeField] private GameObject recipe_text;  // 표시할 UI 오브젝트
-    [SerializeField] private GameObject image;  // 이미지
+    //SerializeField] private GameObject image;  // 이미지
 
     void Start()
     {
         // UI 비활성화
         recipe_text.SetActive(false);
-        image.SetActive(false);
+        //image.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -18,7 +18,7 @@ public class showRecipeUI : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             recipe_text.SetActive(true);
-            image.SetActive(true);
+            //image.SetActive(true);
         }
     }
 
@@ -28,7 +28,7 @@ public class showRecipeUI : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             recipe_text.SetActive(false);
-            image.SetActive(false);
+            //image.SetActive(false);
         }
     }
 }

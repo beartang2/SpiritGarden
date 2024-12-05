@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a562b90760fdb644ca6b36ede0ae968d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
-  pickDis: 1.5
+  speed: 11
+  pickDis: 1
   ttl: 10
   item: {fileID: 0}
   count: 1

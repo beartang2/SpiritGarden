@@ -24,6 +24,7 @@ public class Portal : MonoBehaviour
 
     private void Start()
     {
+        camSc.mapCnt = 1;
         hp_Canvas.SetActive(false); // 시작은 사냥터가 아니므로 비활성화
     }
 

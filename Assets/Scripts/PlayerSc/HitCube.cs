@@ -15,6 +15,7 @@ public class HitCube : MonoBehaviour
     [SerializeField] LightingManager lightManager; // 라이팅 매니저 스크립트
     [SerializeField] CameraManager camSc; // 카메라 스크립트
     LightingPreset preset;
+    Item item;
 
     private Vector3Int tilePos;
 
@@ -36,7 +37,7 @@ public class HitCube : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // 도구 아이템 정보 가져오기
-        Item item = toolbarCont.GetItem;
+        item = toolbarCont.GetItem;
 
         // 충돌한 물체의 스크립트를 가져온다
         DroppingItem droppingItem = other.GetComponent<DroppingItem>();

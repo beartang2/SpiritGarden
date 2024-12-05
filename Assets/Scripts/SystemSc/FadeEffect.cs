@@ -43,7 +43,7 @@ public class FadeEffect : MonoBehaviour
 
     private void ChangeBackground()
     {
-        camSc.ChangeProfile(1, 3);
+        camSc.ChangeProfile(1, 4);
     }
 
     private IEnumerator FadeOut()

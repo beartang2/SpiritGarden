@@ -8,9 +8,16 @@ using UnityEngine.Audio;
 public class ButtonsFunction : MonoBehaviour
 {
     public Slider slider;
+    public GameObject settingPanel;
     //public Image soundWaveImg;
     //public List<Sprite> soundWaves;
-    public AudioMixer audioMixer; // AudioMixer 참조
+    public AudioSource audioSc; // audioSc 참조
+    AudioClip audioClip;
+
+    private void Start()
+    {
+        
+    }
 
     public void SingleMode()
     {
@@ -28,10 +35,7 @@ public class ButtonsFunction : MonoBehaviour
         // 슬라이더 값에 따라 AudioMixer의 마스터 볼륨을 조정
         float sliderValue = slider.value; // 슬라이더 값 (0 ~ 1)
 
-        // dB로 변환 (-80 ~ 0)
-        float volumeDb = Mathf.Log10(Mathf.Clamp(sliderValue, 0.0001f, 1f)) * 20;
-
-        audioMixer.SetFloat("MasterVolume", volumeDb); // "MasterVolume"은 AudioMixer의 exposed parameter
+        audioSc.volume = sliderValue;
 
         /*
         if (slider.value == 0) soundWaveImg.sprite = soundWaves[0];
@@ -41,15 +45,20 @@ public class ButtonsFunction : MonoBehaviour
         */
     }
 
+    public void OpenMenu()
+    {
+        settingPanel.SetActive(true);
+    }
+
     public void CloseMenu()
     {
-        gameObject.SetActive(false);
+        settingPanel.SetActive(false);
     }
 
     public void SaveSettingData()
     {
         print("Save");
-        gameObject.SetActive(false);
+        settingPanel.SetActive(false);
     }
 
     public void Exit()
