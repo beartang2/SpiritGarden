@@ -17,6 +17,8 @@ TagManager:
   - Building
   - Building4
   - Building5
+  - SFX
+  - Item
   layers:
   - Default
   - TransparentFX

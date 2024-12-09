@@ -7,6 +7,9 @@ public class EnemyHp : MonoBehaviour
 {
     [SerializeField] private Image enemyHpBarImage;
     private DroppingItem droppingItem;
+    public AudioClip hitSound;
+    private AudioSource audioSource;
+
     private int maxEnemyHealth = 100;
     private int currentEnemyHealth;
     private bool damaging = false;
@@ -30,6 +33,7 @@ public class EnemyHp : MonoBehaviour
         currentEnemyHealth = maxEnemyHealth;
 
         droppingItem = GetComponent<DroppingItem>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -53,6 +57,8 @@ public class EnemyHp : MonoBehaviour
             damaging = true;
             
             Health -= amount;  // 프로퍼티를 통해 체력을 줄임
+
+            audioSource.PlayOneShot(hitSound);
 
             Debug.Log("데미지 입음!");
         }

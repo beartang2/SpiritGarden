@@ -8,6 +8,7 @@ public class EndingManager : MonoBehaviour
     // ScriptableObject 배열로 모든 건물 데이터 관리
     public List<BuildRecipe> buildingList;
     [SerializeField] FadeEffect fadeEffect;
+    [SerializeField] GameObject canvas;
     [SerializeField] Transform player;
     [SerializeField] GameObject[] spirits; // 정령 오브젝트들
     [SerializeField] Transform[] npcPositions; // 이동시킬 위치 좌표
@@ -44,6 +45,7 @@ public class EndingManager : MonoBehaviour
         }
         if(allBuilt && !isEnding)
         {
+            canvas.SetActive(true);
             isEnding = true;
             // 엔딩 호출
             Debug.Log("모든 건물이 재건되었습니다. 엔딩 호출!");

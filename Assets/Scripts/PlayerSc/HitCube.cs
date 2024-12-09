@@ -14,16 +14,20 @@ public class HitCube : MonoBehaviour
     [SerializeField] RecipeList recipeList; // 레시피 리스트
     [SerializeField] LightingManager lightManager; // 라이팅 매니저 스크립트
     [SerializeField] CameraManager camSc; // 카메라 스크립트
+    [SerializeField] ToolBarController toolbarCont;
+    [SerializeField] AudioClip[] sfxs;
     LightingPreset preset;
     Item item;
-
-    private Vector3Int tilePos;
-
-    [SerializeField] ToolBarController toolbarCont;
+    AudioSource audioSource;
 
     private BuildingSprites buildingSprites;
     private SpriteRenderer buildingSpriteRenderer;
     private Sprite sprites; // sprite 배열
+
+    private Vector3Int tilePos;
+
+    private float delay = 0f;
+    private bool delaying = true;
 
     //private int id = -1; // 건축물 번호 초기화
 
@@ -31,6 +35,20 @@ public class HitCube : MonoBehaviour
     {
         // builded bool 변수 초기화
         InitializeRecipes();
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+        if (delaying)
+        {
+            delay += Time.deltaTime;
+            if (delay > 1f)
+            {
+                delaying = false; // 데미지 상태 해제
+                delay = 0f; // 딜레이 초기화
+            }
+        }
     }
 
     // 충돌 감지
@@ -43,25 +61,33 @@ public class HitCube : MonoBehaviour
         DroppingItem droppingItem = other.GetComponent<DroppingItem>();
         EnemyHp enemyHp = other.GetComponent<EnemyHp>();
 
-        if (enemyHp != null) // 에너미 체력 스크립트가 존재하면 -> 에너미
+        if (!delaying && enemyHp != null) // 에너미 체력 스크립트가 존재하면 -> 에너미
         {
             if (other.CompareTag("Enemy") && item.Name == "Sword")
             {
+                delaying = true;
+                audioSource.PlayOneShot(sfxs[0]);
                 enemyHp.TakeDamage(10);
                 Debug.Log("'검'으로 적을 타격하였다! 10 데미지");
             }
             if (other.CompareTag("Enemy") && item.Name == "Pickaxe")
             {
+                delaying = true;
+                audioSource.PlayOneShot(sfxs[0]);
                 enemyHp.TakeDamage(8);
                 Debug.Log("'곡괭이'로 적을 타격하였다! 8 데미지");
             }
             if (other.CompareTag("Enemy") && item.Name == "Sickle")
             {
+                delaying = true;
+                audioSource.PlayOneShot(sfxs[0]);
                 enemyHp.TakeDamage(4);
                 Debug.Log("'낫'으로 적을 타격하였다! 4 데미지");
             }
             if (other.CompareTag("Enemy") && item.Name == null)
             {
+                delaying = true;
+                audioSource.PlayOneShot(sfxs[1]);
                 enemyHp.TakeDamage(2);
                 Debug.Log("'손'으로 적을 타격하였다! 2 데미지");
             }
@@ -70,32 +96,53 @@ public class HitCube : MonoBehaviour
         {
             if (other.CompareTag("Plant") && tileReadCont != null)
             {
-                if(item.Name == "Sickle")
+                if (item.Name == "Sickle")
                 {
-                Debug.Log("풀");
+                    Debug.Log("풀");
                     tilePos = tileReadCont.GetGridPosition(gameObject.transform.position);
                     dropItemSc.HarvestPlant(tilePos);
                     droppingItem.Hit();
                 }
             }
-            if (other.CompareTag("Stone") && item.Name == "Pickaxe")
+
+            DistructionManager distructObj = other.GetComponent<DistructionManager>();
+            if (distructObj != null)
             {
-                if (trstspawner != null)
+                if (other.CompareTag("Stone") && item.Name == "Pickaxe")
                 {
-                    trstspawner.objectList.Remove(other.gameObject);
+                    if (!delaying && trstspawner != null)
+                    {
+                        delaying = true;
+                        if (distructObj.currentHits > 0 && distructObj.TakeHit())
+                        {
+                            distructObj.PlaySFX();
+                            StartCoroutine(DestroyObject(other));
+                        }
+                    }
+                    if (!delaying && stspawner != null)
+                    {
+                        delaying = true;
+                        if (distructObj.currentHits > 0 && distructObj.TakeHit())
+                        {
+                            distructObj.PlaySFX();
+                            StartCoroutine(DestroyObject(other));
+                        }
+                    }
                 }
-                if(stspawner != null)
+                if (other.CompareTag("Tree") && item.Name == "Pickaxe")
                 {
-                    stspawner.stoneList.Remove(other.gameObject);
+                    if (!delaying && trstspawner != null)
+                    {
+                        delaying = true;
+                        if (distructObj.currentHits > 0 && distructObj.TakeHit())
+                        {
+                            distructObj.PlaySFX();
+                            StartCoroutine(DestroyObject(other));
+                        }
+                    }
                 }
-                droppingItem.Hit(); // DroppingItem 클래스의 Hit() 메서드를 호출
+                Debug.Log("큐브가 충돌함!");
             }
-            if (other.CompareTag("Tree") && item.Name == "Pickaxe" && trstspawner != null)
-            {
-                trstspawner.objectList.Remove(other.gameObject);
-                droppingItem.Hit(); // DroppingItem 클래스의 Hit() 메서드를 호출
-            }
-            Debug.Log("큐브가 충돌함!");
         }
         else // 드랍아이템 스크립트가 존재하지 않으면 -> 건물 오브젝트
         {
@@ -217,11 +264,11 @@ public class HitCube : MonoBehaviour
                 {
                     recipeList.recipes[id].builded = true;
                     buildingSpriteRenderer.sprite = sprites; // 스프라이트 변경
-                    if(id > 1)
+                    if (id > 1)
                     {
                         //lightManager.vignette.intensity.value -= 0.15f;
                         camSc.mapCnt++;
-                        if(id != 3)
+                        if (id != 3)
                         {
                             camSc.UpdateProfile();
                         }
@@ -251,5 +298,13 @@ public class HitCube : MonoBehaviour
         }
 
         Debug.Log("RecipeList initialized.");
+    }
+
+    IEnumerator DestroyObject(Collider other)
+    {
+        yield return new WaitForSeconds(1.3f);
+
+        trstspawner.objectList.Remove(other.gameObject);
+        other.GetComponent<DroppingItem>().Hit(); // DroppingItem 클래스의 Hit() 메서드를 호출
     }
 }

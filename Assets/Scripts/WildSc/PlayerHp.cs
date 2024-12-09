@@ -1,15 +1,23 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.UIElements.Experimental;
 
 public class PlayerHp : MonoBehaviour
 {
     [SerializeField] private Image hpBarImage; // 체력바 이미지
+    private Vector3 startPos;
+    public AudioClip[] sounds;
+    private AudioSource audioSource;
+
     private int maxHealth = 100;
-    private int currentHealth;
+    private float currentHealth;
     private bool damaging = false;
     private float damageDelay = 0f;
+    private float healDelay = 0f;
+    private bool healing = false;
 
-    public int Health
+    public float Health
     {
         get => currentHealth;
         set
@@ -25,6 +33,9 @@ public class PlayerHp : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth; // 게임 시작 시 체력을 최대값으로 초기화
+        startPos = transform.position;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -33,6 +44,7 @@ public class PlayerHp : MonoBehaviour
         if (damaging)
         {
             damageDelay += Time.deltaTime;
+
             if (damageDelay > 1f)
             {
                 damaging = false; // 데미지 상태 해제
@@ -40,11 +52,23 @@ public class PlayerHp : MonoBehaviour
                 //Debug.Log("딜레이 초기화");
             }
         }
+        if (!healing && !damaging && currentHealth < 100f)
+        {
+            healDelay += Time.deltaTime;
+            if (healDelay > 3f)
+            {
+                Debug.Log("Start heal");
+                Heal(1f);
+                healDelay = 0f;
+                healing = false;
+            }
+
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Enemy" && !damaging)
+        if (collision.gameObject.tag == "Enemy" && !damaging)
         {
             damaging = true;
             TakeDamage(10);
@@ -62,6 +86,8 @@ public class PlayerHp : MonoBehaviour
     {
         Health -= amount;  // 프로퍼티를 통해 체력을 줄임
 
+        audioSource.PlayOneShot(sounds[0]);
+
         if (currentHealth < 0)
         {
             currentHealth = 0;
@@ -73,15 +99,17 @@ public class PlayerHp : MonoBehaviour
     {
         Debug.Log("Player died.");
         // 플레이어가 죽었을 때 처리
-        gameObject.SetActive(false); // 우선 플레이어 비활성화
+        transform.position = startPos;
+        Heal(100f);
     }
 
-    // 체력을 회복할 때 호출하는 함수
-    // 나중에 회복물약 추가 시 사용
-    /*
     public void Heal(float healAmount)
     {
+        healing = true;
+
         currentHealth += healAmount;
+
+        audioSource.PlayOneShot(sounds[1]);
 
         if (currentHealth > maxHealth)
         {
@@ -89,5 +117,5 @@ public class PlayerHp : MonoBehaviour
         }
         UpdateHealthBar();  // 회복할 때 체력바 업데이트
     }
-    */
+
 }

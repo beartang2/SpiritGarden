@@ -17,6 +17,7 @@ public class Portal : MonoBehaviour
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Text timeText;
     [SerializeField] CameraManager camSc;
+    AudioSource audioSource;
 
     public Color[] textColors;
 
@@ -26,10 +27,13 @@ public class Portal : MonoBehaviour
     {
         camSc.mapCnt = 1;
         hp_Canvas.SetActive(false); // 시작은 사냥터가 아니므로 비활성화
+        audioSource = GetComponentInChildren<AudioSource>(); // 자식 객체의 오디오소스 컴포넌트 참조
     }
 
     private void OnTriggerEnter(Collider col)
     {
+        audioSource.Play();
+
         if(!isWarped && portalID == 1) // 동굴->농장
         {
             // 카메라 포스트프로세싱 프로파일 설정

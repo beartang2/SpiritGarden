@@ -37,7 +37,7 @@ public class DragAndDrop : MonoBehaviour
                     {
                         // 플레이어와 클릭한 지점 사이의 방향을 계산하고, 일정 거리에 아이템을 생성
                         Vector3 direction = (hit.point - player.position).normalized;
-                        Vector3 spawnPosition = player.position + direction * 2f; // 캐릭터로부터 2단위 떨어진 지점
+                        Vector3 spawnPosition = player.position + direction * 5f; // 캐릭터로부터 2단위 떨어진 지점
                         spawnPosition.y = 0.5f; // y축 고정
 
                         // 아이템 생성

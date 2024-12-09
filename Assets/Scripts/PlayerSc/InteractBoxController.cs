@@ -44,43 +44,29 @@ public class InteractBoxController : MonoBehaviour
         // 마우스 좌클릭을 감지
         if (Input.GetMouseButtonDown(0))
         {
-            // 레이가 땅에 맞았는지 확인
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
-            {
-                /*
-                // 클릭한 위치와 캐릭터 사이의 방향 계산 (Y축 고정)
-                Vector3 targetDirection = (hit.point - player.position).normalized;
-                targetDirection.y = 0;  // Y축 무시하여 수평 방향만 계산
-
-                // 클릭한 위치와 캐릭터 사이의 거리를 계산
-                float clickedDistance = Vector3.Distance(player.position, hit.point);
-
-                // 클릭 위치가 고정 거리보다 가까운 경우
-                if (clickedDistance < distance)
-                {
-                    // 큐브가 플레이어와 적절한 거리만큼 떨어지도록 설정
-                    cube.position = player.position + targetDirection * distance;
-                }
-                else
-                {
-                    // 큐브가 플레이어와 적절한 거리만큼 떨어지도록 설정
-                    cube.position = player.position + targetDirection * distance;
-                }
-
-                // 큐브의 Y축 고정
-                cube.position = new Vector3(cube.position.x, fixedY, cube.position.z);
-                */
-
-                // 콜라이더를 잠시 켰다가 끄는 코루틴 실행
-                StartCoroutine(ActivateColliderTemporarily());
-            }
+            // 콜라이더를 잠시 켰다가 끄는 코루틴 실행
+            StartCoroutine(ActivateColliderTemporarily());
         }
         else
         {
-            Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer);
+            // groundLayer와의 충돌 여부 확인
+            if(Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
+            {
+                // 마지막 방향을 업데이트
+                lastDirection = (hit.point - player.position).normalized;
+            }
+            else
+            {
+                // 충돌 실패: 카메라 평면을 기준으로 계산
+                Plane groundPlane = new Plane(Vector3.up, Vector3.zero); // y=0 평면
 
-            // 마지막 방향을 업데이트
-            lastDirection = (hit.point - player.position).normalized;
+                if (groundPlane.Raycast(ray, out float distanceToPlane))
+                {
+                    Vector3 hitPoint = ray.GetPoint(distanceToPlane);
+                    lastDirection = (hitPoint - player.position).normalized;
+                }
+            }
+
 
             // 큐브가 마지막 방향으로 플레이어를 따라다님
             cube.position = player.position + lastDirection * distance;

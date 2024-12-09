@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit hit;
 
         // 광선이 충돌한 지점이 있으면 그 지점을 목표 위치로 설정
-        if (Physics.Raycast(ray, out hit) && hit.transform.tag == "Ground")
+        if (Physics.Raycast(ray, out hit) && hit.transform.tag == "Ground" || hit.transform.tag == "Item")
         {
             targetPosition = hit.point;  // 충돌한 지점을 목표로 설정
             isMoving = true;             // 이동 시작
@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collision.transform.tag != "Ground")
         {
-            CheckFront();            
+            CheckFront();
         }
     }
 
