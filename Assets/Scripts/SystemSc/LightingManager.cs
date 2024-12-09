@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
-using UnityEngine.UI;
+using TMPro;
 
 [ExecuteAlways]
 public class LightingManager : MonoBehaviour
 {
     //[SerializeField] private Light directionalLight;
     [SerializeField] private LightingPreset preset;
-    [SerializeField] private Text dayTimeUI;
+    [SerializeField] private TMP_Text dayTimeUI;
     [SerializeField, Range(0, 23)] private float timeOfDay;
     [SerializeField] private AnimationCurve exposureCurve;
 

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventoryButton : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] Image icon;
-    [SerializeField] Text text;
+    [SerializeField] TMP_Text text;
     [SerializeField] Image highlight;
 
     int myIndex;

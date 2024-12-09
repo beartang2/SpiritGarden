@@ -52,4 +52,15 @@ public class InGameSetting : MonoBehaviour
         print("Save");
         settingPanel.SetActive(false);
     }
+
+    public void Exit()
+    {
+        buttonAudioSc.PlayOneShot(audioClip);
+        // 게임 종료
+#if UNITY_EDITOR //전처리기로 유니티 에디터가 실행중일때 플레이를 멈추도록함.
+        UnityEditor.EditorApplication.isPlaying = false; //어플리케이션 플레이를 false로 함.
+#else //유니티에디터가 실행중이 아닐때 작동
+                Application.Quit(); //어플리케이션을 종료
+#endif
+    }
 }

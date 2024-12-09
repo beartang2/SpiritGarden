@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 [System.Serializable]
 public class Tutorial_Info
@@ -20,7 +20,7 @@ public class TutorialManager : MonoBehaviour
     private int currentStep = 0; // 현재 튜토리얼 단계
 
     [SerializeField] private GameObject tuto_Panel; // 튜토리얼 UI 패널
-    [SerializeField] private Text tuto_Text; // 튜토리얼 텍스트
+    [SerializeField] private TMP_Text tuto_Text; // 튜토리얼 텍스트
     //[SerializeField] private TMPro.TextMeshPro tuto_Text; // 튜토리얼 텍스트 (TMP)
     [SerializeField] private Transform player; // 플레이어 이동 확인 변수
 
