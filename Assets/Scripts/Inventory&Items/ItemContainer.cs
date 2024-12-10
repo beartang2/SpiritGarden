@@ -63,7 +63,7 @@ public class ItemContainer : ScriptableObject
             //add non stackable item to ours item container
             ItemSlot itemSlot = slots.Find(x => x.item == null);
 
-            if (itemSlot == null)
+            if (itemSlot != null)
             {
                 itemSlot.item = item;
             }

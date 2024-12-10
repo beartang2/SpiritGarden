@@ -82,6 +82,7 @@ public class InteractBoxController : MonoBehaviour
 
         if(item == null)
         {
+            toolSprite.sprite = null;
             return;
         }
 

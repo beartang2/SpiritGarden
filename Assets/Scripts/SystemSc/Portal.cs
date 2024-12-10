@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
+using TMPro;
 
 public class Portal : MonoBehaviour
 {
@@ -15,7 +15,7 @@ public class Portal : MonoBehaviour
     [SerializeField] private CameraManager mapManager;
     [SerializeField] private GameObject hp_Canvas;
     [SerializeField] private NavMeshAgent navMeshAgent;
-    [SerializeField] private Text timeText;
+    [SerializeField] private TMP_Text timeText;
     [SerializeField] CameraManager camSc;
     AudioSource audioSource;
 

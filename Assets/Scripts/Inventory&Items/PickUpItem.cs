@@ -9,6 +9,7 @@ public class PickUpItem : MonoBehaviour
     [SerializeField] float pickDis = 1.5f; // 아이템이 플레이어에게 이동하기 시작하는 거리
     [SerializeField] float ttl = 10f; // 아이템의 Time To Live (생존 시간)
     AudioSource audioSc; // 오디오 소스
+    public AudioClip audioClip;
 
     public Item item; // 아이템 정보를 담는 변수
     public int count = 1; // 아이템 개수
@@ -63,7 +64,12 @@ public class PickUpItem : MonoBehaviour
             player.position,    // 플레이어의 위치
             speed * Time.deltaTime // 이동 속도 조정
         );
-        itemCol.enabled = false; // 플레이어와 부딪히지 않게 비활성화
+
+        if(itemCol.enabled)
+        {
+            itemCol.enabled = false; // 플레이어와 부딪히지 않게 비활성화
+            audioSc.PlayOneShot(audioClip); // 아이템 먹는 소리
+        }
     }
 
     private void CheckDist()
@@ -92,9 +98,6 @@ public class PickUpItem : MonoBehaviour
             {
                 // 인벤토리에 아이템 종류와 개수 추가
                 GameManager.instance.inventory.Add(item, count);
-
-                audioSc.Play(); // 아이템 먹는 소리
-                
             }
             else
             {

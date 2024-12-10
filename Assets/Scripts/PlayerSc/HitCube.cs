@@ -109,16 +109,7 @@ public class HitCube : MonoBehaviour
             {
                 if (other.CompareTag("Stone") && item.Name == "Pickaxe")
                 {
-                    if (!delaying && trstspawner != null)
-                    {
-                        delaying = true;
-                        if (distructObj.currentHits > 0 && distructObj.TakeHit())
-                        {
-                            distructObj.PlaySFX();
-                            StartCoroutine(DestroyObject(other));
-                        }
-                    }
-                    if (!delaying && stspawner != null)
+                    if (!delaying)
                     {
                         delaying = true;
                         if (distructObj.currentHits > 0 && distructObj.TakeHit())
@@ -130,7 +121,7 @@ public class HitCube : MonoBehaviour
                 }
                 if (other.CompareTag("Tree") && item.Name == "Pickaxe")
                 {
-                    if (!delaying && trstspawner != null)
+                    if (!delaying)
                     {
                         delaying = true;
                         if (distructObj.currentHits > 0 && distructObj.TakeHit())
@@ -303,7 +294,16 @@ public class HitCube : MonoBehaviour
     {
         yield return new WaitForSeconds(1.3f);
 
-        trstspawner.objectList.Remove(other.gameObject);
+        if(trstspawner != null)
+        {
+            trstspawner.objectList.Remove(other.gameObject);
+            //Destroy();
+        }
+        if(stspawner != null)
+        {
+            stspawner.stoneList.Remove(other.gameObject);
+
+        }
         other.GetComponent<DroppingItem>().Hit(); // DroppingItem 클래스의 Hit() 메서드를 호출
     }
 }

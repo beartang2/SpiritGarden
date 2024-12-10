@@ -103,6 +103,7 @@ MonoBehaviour:
   speed: 11
   pickDis: 1
   ttl: 10
+  audioClip: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
   item: {fileID: 0}
   count: 1
 --- !u!54 &869611009979993174
@@ -162,10 +163,10 @@ AudioSource:
   m_GameObject: {fileID: 7856482750098046178}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8685492364961228110, guid: f2217250980b39a4ba56d78385411540, type: 2}
   m_audioClip: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_PlayOnAwake: 0
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0

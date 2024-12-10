@@ -1,16 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class setRecipeText : MonoBehaviour
 {
     [SerializeField] private BuildRecipe recipe;           // 표시할 레시피
-    private Text recipeText;         // UI 텍스트 컴포넌트
+    private TMP_Text recipeText;         // UI 텍스트 컴포넌트
 
     void Start()
     {
-        this.recipeText = GetComponent<Text>();
+        this.recipeText = GetComponent<TMP_Text>();
         DisplayRecipe();
     }
 
@@ -20,7 +20,7 @@ public class setRecipeText : MonoBehaviour
             return;
 
         // 기존 텍스트 초기화
-        recipeText.text = $"\n필요한 재료\n";
+        recipeText.text = $"필요한 재료\n";
 
         foreach (var items in recipe.elements)
         {
