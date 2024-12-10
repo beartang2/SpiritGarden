@@ -32,6 +32,11 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
+        if(col.gameObject.CompareTag("Enemy"))
+        {
+            return;
+        }
+
         audioSource.Play();
 
         if(!isWarped && portalID == 1) // µø±º->≥Û¿Â

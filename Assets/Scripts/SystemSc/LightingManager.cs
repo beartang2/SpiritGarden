@@ -44,7 +44,13 @@ public class LightingManager : MonoBehaviour
             return;
         }
 
-        if(Application.isPlaying) //프로그램이 실행중이면
+        if (p_pVolume != null)
+        {
+            p_pVolume.profile.TryGetSettings(out colorGrading);
+            p_pVolume.profile.TryGetSettings(out vignette);
+        }
+
+        if (Application.isPlaying) //프로그램이 실행중이면
         {
             timeOfDay += Time.deltaTime * timeSpeed; //시간이 흐르도록 함
             timeOfDay %= 24; //1-24 시간

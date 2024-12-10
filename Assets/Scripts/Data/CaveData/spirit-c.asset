@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elements:
   - item: {fileID: 11400000, guid: 6419b1277d582f143a81d842eb25a9dc, type: 2}
-    count: 120
+    count: 30
   - item: {fileID: 11400000, guid: c8782aa15e07490479f836006714edfb, type: 2}
-    count: 40
+    count: 20
   - item: {fileID: 11400000, guid: 8519f0a2f2a13b0459c69fc461797524, type: 2}
-    count: 230
+    count: 35
   - item: {fileID: 11400000, guid: 6027a0b147e2fa34ab72a1dbc2c696a1, type: 2}
-    count: 3
+    count: 1
   - item: {fileID: 11400000, guid: 055817e8ec6af98439604c1762fdc6d4, type: 2}
-    count: 10
-  builded: 1
+    count: 2
+  builded: 0

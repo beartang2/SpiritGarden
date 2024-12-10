@@ -95,7 +95,7 @@ public class DroppingItem : MonoBehaviour
             Item randomItem = item[Random.Range(0, item.Count)];
 
             // 아이템 생성
-            ItemSpawner.instance.SpawnItem(position, randomItem, randomItemCnt);
+            ItemSpawner.instance.SpawnItem(position, randomItem, itemCntDrop);
             // 아이템 생성
             //ItemSpawner.instance.SpawnItem(position, item, itemCntDrop);
         }

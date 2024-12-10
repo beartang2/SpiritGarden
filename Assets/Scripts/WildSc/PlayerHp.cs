@@ -6,6 +6,7 @@ using UnityEngine.UIElements.Experimental;
 public class PlayerHp : MonoBehaviour
 {
     [SerializeField] private Image hpBarImage; // 체력바 이미지
+    [SerializeField] private GameObject hpCanvas;
     private Vector3 startPos;
     public AudioClip[] sounds;
     private AudioSource audioSource;
@@ -100,7 +101,8 @@ public class PlayerHp : MonoBehaviour
         Debug.Log("Player died.");
         // 플레이어가 죽었을 때 처리
         transform.position = startPos;
-        Heal(100f);
+        currentHealth = maxHealth;
+        hpCanvas.SetActive(false);
     }
 
     public void Heal(float healAmount)
@@ -109,7 +111,7 @@ public class PlayerHp : MonoBehaviour
 
         currentHealth += healAmount;
 
-        audioSource.PlayOneShot(sounds[1]);
+        //audioSource.PlayOneShot(sounds[1]);
 
         if (currentHealth > maxHealth)
         {
