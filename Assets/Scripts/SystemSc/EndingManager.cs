@@ -57,6 +57,7 @@ public class EndingManager : MonoBehaviour
     {
         movementSc.enabled = false; // «√∑π¿ÃæÓ ¿Ãµø ∏ÿ√„
         rb.isKinematic = false; // π∞∏Æ ø¨ªÍ ∏ÿ√„
+        player.transform.position = startPos;
         anim.SetFloat("MoveX", 0); // æ÷¥œ∏ﬁ¿Ãº« ∏ÿ√„
         anim.SetFloat("MoveY", 0);
 

@@ -23,4 +23,4 @@ MonoBehaviour:
     count: 10
   - item: {fileID: 11400000, guid: c8782aa15e07490479f836006714edfb, type: 2}
     count: 5
-  builded: 0
+  builded: 1
