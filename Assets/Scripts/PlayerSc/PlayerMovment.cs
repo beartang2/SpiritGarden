@@ -49,6 +49,32 @@ public class PlayerMovement : MonoBehaviour
             //CheckFront();
             MoveToTarget();
         }
+        else
+        {
+            BlockOutOfWorld();  // 플레이어가 Ground 밖으로 나갔는지 확인
+        }
+    }
+
+    // 플레이어가 Ground 밖으로 나갔는지 아래 레이로 확인
+    private void BlockOutOfWorld()
+    {
+        Ray ray = new Ray(transform.position, Vector3.down);  // 아래 방향으로 레이 발사
+        if(Physics.Raycast(ray, out RaycastHit hit, 1f))
+        {
+            // 레이가 충돌한 물체가 Ground가 아니면
+            if (hit.transform.tag != "Ground")
+            {
+                // 캐릭터 움직임 멈추기
+                rb.velocity = Vector3.zero;  // Rigidbody 속도 초기화
+                isMoving = false;  // 이동 멈춤
+            }
+        }
+        else
+        {
+            // 캐릭터 움직임 멈추기
+            rb.velocity = Vector3.zero;  // Rigidbody 속도 초기화
+            isMoving = false;  // 이동 멈춤
+        }
     }
 
     // 마우스 우클릭한 위치로 목표 지점을 설정

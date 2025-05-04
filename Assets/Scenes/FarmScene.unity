@@ -18094,6 +18094,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793590986}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &812922529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b924e2dad56384a8df2a1e111bb675, type: 3}
+  m_Name: Vignette(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  mode:
+    overrideState: 0
+    value: 0
+  color:
+    overrideState: 1
+    value: {r: 0.41176474, g: 0.7665435, b: 1, a: 1}
+  center:
+    overrideState: 0
+    value: {x: 0.5, y: 0.5}
+  intensity:
+    overrideState: 1
+    value: 0.5
+  smoothness:
+    overrideState: 1
+    value: 0.2
+  roundness:
+    overrideState: 0
+    value: 0.5
+  rounded:
+    overrideState: 0
+    value: 0
+  mask:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  opacity:
+    overrideState: 0
+    value: 1
 --- !u!1 &819735849
 GameObject:
   m_ObjectHideFlags: 0
@@ -20635,7 +20679,7 @@ MonoBehaviour:
   timeSpeed: 0.1
   dayCount: 1
   isCounted: 0
-  vignette: {fileID: 1969449830}
+  vignette: {fileID: 812922529}
 --- !u!114 &831899061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31611,7 +31655,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443866644}
-  m_Material: {fileID: 13400000, guid: e5fd724f8956d38408310763fe8c8204, type: 2}
+  m_Material: {fileID: 13400000, guid: 0425870d2c2f02f4e928df9f58f9c4cf, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -43646,50 +43690,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4622126627973813579, guid: 90c8468908e22e941b4d3272a435fe27, type: 3}
   m_PrefabInstance: {fileID: 1967354184}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1969449830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40b924e2dad56384a8df2a1e111bb675, type: 3}
-  m_Name: Vignette(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  mode:
-    overrideState: 0
-    value: 0
-  color:
-    overrideState: 1
-    value: {r: 0.41176474, g: 0.7665435, b: 1, a: 1}
-  center:
-    overrideState: 0
-    value: {x: 0.5, y: 0.5}
-  intensity:
-    overrideState: 1
-    value: 0.5
-  smoothness:
-    overrideState: 1
-    value: 0.2
-  roundness:
-    overrideState: 0
-    value: 0.5
-  rounded:
-    overrideState: 0
-    value: 0
-  mask:
-    overrideState: 0
-    value: {fileID: 0}
-    defaultState: 1
-  opacity:
-    overrideState: 0
-    value: 1
 --- !u!1 &1985127777
 GameObject:
   m_ObjectHideFlags: 0

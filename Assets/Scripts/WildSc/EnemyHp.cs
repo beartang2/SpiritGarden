@@ -10,7 +10,7 @@ public class EnemyHp : MonoBehaviour
     public AudioClip hitSound;
     private AudioSource audioSource;
 
-    private int maxEnemyHealth = 40;
+    private int maxEnemyHealth = 100;
     private int currentEnemyHealth;
     private bool damaging = false;
     private float damageDelay = 0f;

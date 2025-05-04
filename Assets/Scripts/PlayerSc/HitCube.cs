@@ -66,28 +66,28 @@ public class HitCube : MonoBehaviour
             {
                 delaying = true;
                 audioSource.PlayOneShot(sfxs[0]);
-                enemyHp.TakeDamage(10);
+                enemyHp.TakeDamage(20);
                 Debug.Log("'검'으로 적을 타격하였다! 10 데미지");
             }
             if (other.CompareTag("Enemy") && item.Name == "Pickaxe")
             {
                 delaying = true;
                 audioSource.PlayOneShot(sfxs[0]);
-                enemyHp.TakeDamage(8);
+                enemyHp.TakeDamage(14);
                 Debug.Log("'곡괭이'로 적을 타격하였다! 8 데미지");
             }
             if (other.CompareTag("Enemy") && item.Name == "Sickle")
             {
                 delaying = true;
                 audioSource.PlayOneShot(sfxs[0]);
-                enemyHp.TakeDamage(4);
+                enemyHp.TakeDamage(8);
                 Debug.Log("'낫'으로 적을 타격하였다! 4 데미지");
             }
             if (other.CompareTag("Enemy") && item.Name == null)
             {
                 delaying = true;
                 audioSource.PlayOneShot(sfxs[1]);
-                enemyHp.TakeDamage(2);
+                enemyHp.TakeDamage(4);
                 Debug.Log("'손'으로 적을 타격하였다! 2 데미지");
             }
         }
